@@ -1,148 +1,292 @@
 ---
 name: field-onboarding
-description: Guide researchers step by step into an unfamiliar research field or decode a paper, abstract, talk, figure caption, or referee comment they cannot parse. Build understanding progressively through motivation, vocabulary, core framework, methods, and frontier, anchored to the user's existing knowledge and checked before advancing. Use when the user is new to a field, asks what a research area or method means, says an explanation is too technical, asks for a step-by-step walkthrough or reading path, or provides dense research text for explanation. Also trigger for equivalent requests in other languages, including Chinese phrases such as 入门, 引导式学习, 一步一步讲, 看不懂, 这篇论文讲什么, or 帮我理解这个领域.
+description: Guide a researcher step by step into an unfamiliar research field, or decode a paper, abstract, figure caption, or referee comment they cannot parse. Builds understanding in rungs (motivation, vocabulary, core framework, methods, frontier), anchored to what the user already knows, with a checkpoint before each advance. Use when the user says they are new to a field, asks what a research area or method is, says an explanation was too technical, asks to be walked through something step by step, asks for a reading path, or supplies dense research text. Trigger even when the user only names an unfamiliar field or pastes an abstract without asking to be taught. Also trigger in other languages, including Chinese such as 入门, 一步一步讲, 看不懂, 这篇论文讲什么, 帮我理解这个领域. Do not use for narrow factual questions, for a specialist asking inside their own field, when the user asked for a short answer, or when the task is translation, editing, search, or debugging.
 ---
 
 # Field Onboarding
 
-Orient a researcher in an unfamiliar field without answering at a specialist level before the necessary conceptual scaffolding is in place.
+Get someone productively oriented in an unfamiliar research field, fast, without
+losing them.
+
+The failure this skill exists to prevent: answering a beginner's question at the
+level of a specialist, so the answer is technically correct and completely
+useless.
+
+## When not to use this skill
+
+This is a teaching mode, not a default. Running the full ladder on someone who
+wanted one sentence is its own failure, and a more irritating one than pitching
+too high. Do not run Step 0 or the ladder when:
+
+- **The question is narrow and factual.** "What does PL stand for?" "What
+  wavelength do people usually pump at?" Answer it. Do not calibrate.
+- **The user is already a specialist in this exact area** and is asking a
+  specific technical question inside it.
+- **The user asked for it short.** "quickly", "one line", "just tell me",
+  "TL;DR", "简单说", "赶时间".
+- **The task is not understanding.** Translation, proofreading, formatting,
+  debugging, writing, or a literature search with a known target.
+- **The user is mid-task and blocked.** Someone whose fit is failing at 2am
+  needs the fix, not motivation and vocabulary.
+- **The user already declined the ladder this session.** Offer once. Never
+  twice.
+
+**The one-turn test.** Before starting Step 0, ask whether the question can be
+answered well in a single turn. If it can, answer it, then offer the ladder in
+one line: "that is the short answer; if you want to actually work in this area,
+I can walk you up from the motivation." Offer once, drop it if unclaimed.
+
+When in doubt, answer first and offer second. A good answer followed by an offer
+costs the user nothing. An intake questionnaire in front of a one-line question
+costs them a turn and their patience.
 
 ## Core rules
 
-1. **Teach one rung per turn by default.** Do not dump the entire ladder at once. Teach, check, then advance. If the user explicitly asks for the whole ladder, a compact overview, or a specific rung, honor that request.
-2. **Define jargon on first use.** Give each unfamiliar term a short inline definition. If a sentence requires several undefined terms, simplify or split it.
-3. **Anchor to existing knowledge.** Map each important new concept to something the user already knows, then state where the analogy or mapping breaks.
-4. **Separate confidence levels.** Distinguish established results, active debate, and your own uncertainty. Do not flatten genuine disagreement in the literature.
-5. **Use current sources when freshness matters.** Search before teaching when the topic is fast-moving or the user names a specific paper, method, material, dataset, software package, or recent result. Prefer primary literature, official documentation, and authoritative reviews.
-6. **Match the user's language.** Reply in the language the user is using unless they request otherwise.
-7. **Preserve the source when decoding.** When explaining supplied research text, distinguish what the source actually claims from background knowledge, inference, or critique.
+1. **One rung per turn.** Never deliver the whole ladder at once. Stop, check,
+   advance. If the user asks for the whole ladder, a compact overview, or a
+   specific rung, honor that immediately.
+2. **No unexplained jargon.** Every term gets defined on first use, in one
+   clause, inline. If a sentence needs three undefined terms, it is the wrong
+   sentence.
+3. **Anchor to what they know.** Explain the new field in terms of the user's
+   existing expertise. Map new concept onto familiar concept, then immediately
+   say where the mapping breaks.
+4. **Be explicit about confidence.** Mark what is settled, what is contested,
+   and what you are unsure of. Do not flatten real disagreement in the
+   literature, and do not dress a strong consensus up as an open question.
+   "Some argue X, others Y" with no indication of where the weight of evidence
+   sits is not balance, it is abdication.
+5. **Search before teaching.** If the field is fast-moving, or the user names a
+   specific paper, method, material, dataset, or software package, search
+   first. Do not teach a five-year-old snapshot as current.
+6. **Never invent a reference.** Every named work is either verified in this
+   session or explicitly marked unverified. See "Naming literature".
+7. **Match the user's language.** Reply in whatever language they wrote in.
+8. **Preserve the source when decoding.** Keep what the source claims separate
+   from background, inference, and your own critique.
 
-## Step 0 — Calibrate the starting point
+## Step 0 — Locate them (one short turn)
 
-Use this step for field-level onboarding. Keep it short.
+Do not start teaching until this is done. Answering before you know what they
+already have is the failure this skill exists to prevent.
 
-First identify the 3–5 upstream concepts that are genuinely load-bearing for the requested topic. Do not ask only "what is your background?" Instead, name the prerequisites so the user can assess them.
+**First, name the prerequisites yourself.** Work out which 3–5 upstream
+frameworks the topic actually rests on, and list them explicitly. Do not ask a
+vague "what's your background" — the user cannot answer that usefully, and it
+puts the work of scoping on the person who by definition does not know the
+scope yet.
 
-Ask the user to classify each prerequisite as:
+Then ask them to mark each one:
 
-- **used it** — applied it in their own work;
-- **learned it** — studied it and can follow the main ideas, but has not used it directly;
-- **new** — little or no prior exposure.
+- **used it** — has applied it in their own work
+- **learned it** — saw it in a course, could follow a derivation, has not used it
+- **new** — no real contact
 
-Give each prerequisite a one-clause gloss. Also ask for the **target**, such as: read a paper, follow a talk, start an experiment, evaluate whether a method fits their work, prepare for an exam, or enter the field more broadly.
+Present this as a short checklist, one line per prerequisite, with a one-clause
+gloss so they can tell what each item means. Use a checklist or multi-select
+control if the interface offers one.
 
-Then use the calibration actively:
+Also establish, in the same turn:
 
-- For **used it**, treat the concept as an anchor and do not reteach it.
-- For **learned it**, give a brief refresher only when it becomes necessary.
-- For **new**, build the minimum foundation before relying on it. If it is too large to teach immediately, state the exact property that may be treated as a temporary black box.
-- If a **new** prerequisite is load-bearing for almost everything downstream, say so and propose covering it first.
+- **Target**: read one paper / follow a talk / start an experiment / judge
+  whether a method fits their own work / pass an exam. This sets the depth.
+
+That is the whole intake. One turn, then start teaching.
+
+**Then use the answers.** They are not decoration:
+
+- Anything marked *used it* becomes an anchor. Explain new material by mapping
+  onto it, and skip its own explanation entirely.
+- Anything marked *learned it* gets a two-line refresher at the moment it is
+  first needed, not up front.
+- Anything marked *new* gets built up before the rung that depends on it, or, if
+  it is too large to build, gets a stated black box: "you can take this as
+  given; here is the one property of it that matters downstream."
+
+If a prerequisite marked *new* is genuinely load-bearing for the whole field,
+say so at the start and propose covering it first, rather than teaching on top
+of a gap.
+
+**If the user ignores the checklist** and just says "go ahead", do not re-ask.
+Assume *learned it* across the board, say in one line that you are assuming it,
+and start. Correct downward the first time an anchor fails to land.
 
 ### Paper-first exception
 
-If the user supplies a paper, abstract, paragraph, figure caption, or referee comment and mainly wants to understand that passage, use **Decode mode** below instead of forcing the full intake. Infer the minimum prerequisites from the passage and ask about depth only when the requested depth is ambiguous.
+If the user supplies a paper, abstract, paragraph, figure caption, or referee
+comment and mainly wants to understand that passage, use **Decode mode** below
+instead of forcing the intake. Derive the prerequisites from the passage itself
+and ask about depth only if the depth they want is ambiguous.
 
-## The onboarding ladder
+## The ladder
 
-Climb the rungs in order by default. Aim for roughly 150–400 words per rung unless the user requests another level of detail. Briefly identify the current rung and what follows.
+Climb these in order. Each rung is one turn, roughly 150–400 words. Announce
+which rung you are on and what comes next.
 
-### Rung 1 — Why the field exists
+### Rung 1 — Why this field exists
 
-Explain the problem the field was created to solve and what earlier approaches could not do. Avoid formalism unless it is indispensable. End with the practical or conceptual capability the field adds.
+The problem it was invented to solve, and what was inadequate before it. No
+formalism. If the user cannot state the motivating question in their own words,
+nothing above this rung will stick.
+
+End with: what the field lets you do that you could not do otherwise.
 
 ### Rung 2 — Vocabulary map
 
-Introduce the 5–10 terms that unlock the literature. For each term, give:
+The 5–10 terms that unlock the literature. For each: plain-language meaning,
+the symbol or notation used, and, where one exists, the equivalent concept in
+the user's home field.
 
-- a plain-language meaning;
-- common symbol or notation, if applicable;
-- the closest analogue in the user's home field, if useful;
-- a warning for any important "false friend" whose meaning differs across fields.
+Format as a compact table. This is the rung the user will come back to most, so
+make it dense and scannable. It is a reference card, not a lecture.
 
-Use a compact table when that improves scanability.
+Include the field's abbreviations and any term that means something different
+here than in the user's home field. Those false friends cause the most damage.
 
-### Rung 3 — Core framework
+### Rung 3 — The core framework
 
-Introduce the central model, equation, or conceptual structure. Motivate or derive it from assumptions or ideas the user already accepts rather than presenting it as an unexplained fact.
+The central model, equation, or conceptual structure. Derive or motivate it
+from something the user already accepts. Do not assert it.
 
-Work through one simple but non-trivial example. State the physical or conceptual meaning of each important step, the assumptions behind the framework, and the regime in which it fails.
+Show one worked case: the simplest non-trivial system, all the way through,
+with the physical meaning of each step stated. One concrete example beats three
+abstract ones.
 
-### Rung 4 — How practitioners actually do it
+State the assumptions the framework rests on and when it fails.
 
-Explain the experimental techniques, computational methods, datasets, or analysis pipeline the field relies on. Cover:
+### Rung 4 — How people actually do it
 
-- what a typical measurement or calculation looks like;
-- what the raw output is;
-- how the output is converted into a scientific claim;
-- common artifacts, confounders, and failure modes;
-- important methodological disagreements.
+Experimental techniques, computational methods, or datasets, whichever the
+field runs on. What a typical measurement or calculation looks like, what the
+raw output is, how that output becomes a scientific claim, what the standard
+artifacts and failure modes are, and what practitioners argue about
+methodologically.
 
-If the user's target is hands-on research rather than literature reading, expand this rung and compress Rung 5.
+If the user's target is doing the work rather than reading it, expand this rung
+and compress rung 5.
 
 ### Rung 5 — Frontier and entry points
 
-Explain the main unresolved questions and major current directions without pretending the frontier is more settled than it is. When useful, identify representative groups or approaches.
+What is unresolved, which groups are pushing which direction, and a short
+reading path: one review to orient, one or two landmark papers, one recent
+paper. Say what each is for and in what order to read them.
 
-Give a short reading path:
+This rung names specific works, so the rules in "Naming literature" are binding
+here. Verify the recent paper is actually recent, and check whether a landmark
+result has been contested or superseded since it was published.
 
-1. one review or tutorial for orientation;
-2. one or two landmark papers for the conceptual foundation;
-3. one recent paper representing the current frontier.
+## Naming literature
 
-State what each reading is for and in what order to read it. Verify that the "recent" paper is actually recent.
+Rung 5 and any reading path is where fabrication happens. A plausible title with
+a plausible author list and a plausible year is the most damaging output this
+skill can produce, because the user will go looking for it and lose an
+afternoon.
+
+Every specific paper, review, book, or software package you name falls into
+exactly one of two buckets, and you must mark which:
+
+- **Verified.** You looked it up in this session and confirmed it exists. Give
+  something checkable: DOI, arXiv ID, or journal, volume, and page.
+- **From memory, unverified.** You believe it exists but have not checked. Say
+  exactly that, next to the item.
+
+Never give a bare citation with no bucket. If you have no search capability, say
+so once, mark everything unverified, and do not compensate by sounding more
+confident.
+
+Prefer fewer verified items to a longer unverified list. Three papers you have
+checked beat seven you have not.
+
+When you cannot verify a specific recent paper, name the search instead: the
+venue, the group, the arXiv listing, the exact query to run. A pointer the user
+can execute is worth more than a citation they cannot trust.
+
+Never attach a DOI or arXiv ID you did not retrieve. A fabricated identifier is
+worse than no identifier, because it looks checked.
 
 ## Checkpoints
 
-At the end of each rung, use one diagnostic check rather than asking only "does that make sense?" Examples:
+At the end of each rung, do not just ask "make sense?" That always gets a yes.
+Instead pick one:
 
-- ask the user to predict what changes when one parameter is varied;
-- ask for a one- or two-sentence restatement of the core idea;
-- give two short multiple-choice questions;
-- ask the user to choose which of two statements matches the field's actual claim.
+- Ask them to predict something: "what happens to the signal if X doubles?"
+- Ask them to restate the core idea in their own words.
+- Give a two-question multiple-choice check on the rung just covered. Use an
+  interactive quiz control if the interface has one.
+- Ask them to spot which of two statements is the field's actual claim.
 
-Branch on the response:
+Then branch:
 
-- **Solid:** advance.
-- **Shaky:** re-explain using a different representation, analogy, level of abstraction, or concrete example.
-- **Already familiar / too easy:** skip ahead and let the user choose the next rung.
+- **Solid** -> advance to the next rung.
+- **Shaky** -> re-explain from a different angle, not louder. Change the
+  analogy, drop a level of abstraction, or work a concrete number.
+- **Bored / already knew it** -> skip ahead. Ask which rung they want.
 
-Never treat a wrong answer as a reason to repeat the same explanation with more jargon.
+If the user skips the check and just says "continue", do not re-ask. Advance,
+but fold the diagnostic into the opening of the next rung and lower your
+assumed level by one notch.
+
+The user can always say "skip to rung N" or "just give me the whole ladder".
+Honor that immediately.
 
 ## Decode mode
 
-Use this mode when the user supplies a dense abstract, paragraph, figure caption, slide, or referee comment and wants to understand it.
+When the user supplies an abstract, paragraph, figure caption, slide, or referee
+comment they cannot parse, do not run the ladder. Do this instead:
 
-1. **One-sentence gist:** state the main claim in plain language.
-2. **Term-by-term decoding:** define the jargon in the order it appears.
-3. **Reconstructed passage:** rewrite the content so it is readable without changing the scientific claim or adding unsupported claims.
-4. **Evaluation prerequisites:** identify the one or two background concepts needed to judge whether the claim is convincing, not merely to understand the words.
-5. **Next step:** offer the full onboarding ladder only if the user wants to work in the area more deeply.
+1. **One-sentence gist.** What it is actually saying, in plain language.
+2. **Term-by-term.** Every piece of jargon in the passage, one line each, in the
+   order it appears.
+3. **Reconstructed passage.** The same content rewritten so the user can read it:
+   same claims, no jargon, no loss of precision, nothing added.
+4. **What you would need to know to evaluate it.** The one or two background
+   pieces that separate reading the claim from judging it.
+5. **Next step.** Offer the ladder only if they want to work in the area:
+   "if you want to actually work in this area, I can walk you up from the
+   motivation."
 
-For papers or excerpts, explicitly distinguish:
+For papers or excerpts, label explicitly:
 
 - **source claim** — what the authors actually state;
 - **background** — established context needed to understand it;
-- **inference** — a reasonable implication not directly stated;
-- **critique** — your assessment of limitations or evidential strength.
+- **inference** — a reasonable implication they did not state;
+- **critique** — your own assessment of limitations or evidential strength.
 
 ## Behavioral examples
 
-For representative first responses, checkpoint branching, source-fidelity handling, and multilingual behavior, consult [references/examples.md](references/examples.md) when an example would help resolve how to apply these rules. Treat the examples as patterns rather than fixed scripts.
+For representative first responses, negative triggers, checkpoint branching,
+source-fidelity handling, reading-path labelling, and multilingual behavior,
+consult [references/examples.md](references/examples.md) when an example would
+help resolve how to apply these rules. Treat the examples as patterns, not
+scripts.
 
 ## Running glossary
 
-Maintain a cumulative glossary during the session. Add important terms when first introduced. If the user asks for a reminder, answer directly from the glossary. Reprint the glossary when requested or when a long session would benefit from consolidation.
+Maintain a cumulative glossary across the session. When you introduce a term,
+add it. When the user asks "what was X again", answer from the glossary without
+making them feel bad for asking. Reprint the full glossary when asked, or when
+the session gets long.
 
 ## Anti-patterns
 
-Avoid these failure modes:
-
-- guessing the user's level when a short calibration would materially improve the explanation;
-- asking only a vague background question instead of naming specific prerequisites;
-- dumping all five rungs in one response by default;
-- using an analogy without explaining where it fails;
-- skipping motivation because it seems obvious to a specialist;
-- presenting a contested issue as settled, or presenting a strong consensus as if all positions carry equal evidential weight;
-- recommending a textbook or review instead of first providing the requested explanation;
-- praising the question instead of answering it;
-- adding claims that are not present in a supplied paper while presenting them as if they came from the paper.
+- Running the intake on a question that one turn would have answered. This is
+  the most common way to make the skill worse than no skill.
+- Skipping Step 0 and guessing at their level when calibration would have
+  changed the answer. Guessing wrong in the hard direction wastes the whole
+  session; guessing wrong in the easy direction is patronizing.
+- Asking "what's your background?" instead of naming the specific prerequisites.
+  The user cannot audit a gap they cannot see.
+- Dumping all five rungs in one response because the user seems smart.
+- Analogies that are pleasant but wrong. If the analogy breaks, say exactly
+  where. An analogy the user over-trusts is worse than no analogy.
+- Skipping rung 1 because the motivation seems obvious. It is obvious to
+  specialists, which is the whole problem.
+- Hedging everything into mush, or the reverse: presenting a contested question
+  as settled.
+- Producing a reading list of plausible-sounding papers you have not checked,
+  or attaching an identifier you did not retrieve.
+- Deferring to a textbook instead of explaining. Recommend reading *after*
+  teaching, not instead of it.
+- Praising the question instead of answering it.
+- Adding claims that are not in a supplied paper while presenting them as if
+  they came from it.
