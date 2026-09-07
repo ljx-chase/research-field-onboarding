@@ -16,7 +16,9 @@ When a request involves onboarding a researcher into an unfamiliar field or deco
 4. Read `field-onboarding/references/examples.md` only when an example is useful for resolving how to apply the rules.
 5. Preserve the user's language unless they request another language.
 6. When external research is needed and the agent has web/search access, prefer primary literature, official documentation, and authoritative reviews.
-7. **Apply the "Naming literature" rule without exception.** Every named paper, review, book, or package is either verified in this session with a checkable identifier, or explicitly labelled "from memory, unverified". Never attach a DOI or arXiv ID that was not actually retrieved. If the agent has no web/search capability, state that limitation once, mark everything unverified, and prefer executable search pointers over citations.
+7. **Carry the target through.** The target collected at calibration routes the shape of every rung, not only which rung is expanded. Do not collect it and then ignore it.
+8. **State conventions.** Where competing sign, phase, unit or normalization conventions exist, name the one in use and the alternative.
+9. **Apply the "Naming literature" rule without exception.** Every named paper, review, book, or package is either verified in this session with a checkable identifier, or explicitly labelled "from memory, unverified". Never attach a DOI or arXiv ID that was not actually retrieved. If the agent has no web/search capability, state that limitation once, mark everything unverified, and prefer executable search pointers over citations.
 
 ## Cross-agent compatibility
 

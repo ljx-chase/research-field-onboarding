@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 """Generate the before/after comparison graphic for the README.
 
-Usage:  python3 tools/make_demo.py
+Usage:  python3 tools/make_demo.py           # SVGs only (what the repo ships)
+        python3 tools/make_demo.py --png     # also write 2x PNGs, for posts
+
 Writes: docs/before-after.svg      (English, embedded in README)
         docs/before-after-zh.svg   (Chinese, for social posts)
+
+The PNGs are gitignored on purpose: they are derived from the SVGs, they are
+the only binary files here, and shipping them made a plain `git clone` fail on
+constrained machines. Regenerate them when you need a raster for a platform
+that will not render SVG.
 """
 
+import sys
 from html import escape
 from pathlib import Path
 
@@ -241,3 +249,15 @@ if __name__ == "__main__":
     (out / "before-after-zh.svg").write_text(build("zh"), encoding="utf-8")
     print("wrote", out / "before-after.svg")
     print("wrote", out / "before-after-zh.svg")
+
+    if "--png" in sys.argv:
+        import re
+        import cairosvg
+        for name in ("before-after", "before-after-zh"):
+            svg = (out / f"{name}.svg").read_text(encoding="utf-8")
+            # the CJK stack names fonts a headless renderer may not have
+            svg = re.sub(r'font-family="[^"]*PingFang[^"]*"',
+                         'font-family="Noto Sans CJK SC"', svg)
+            cairosvg.svg2png(bytestring=svg.encode(),
+                             write_to=str(out / f"{name}.png"), scale=2.0)
+            print("wrote", out / f"{name}.png")

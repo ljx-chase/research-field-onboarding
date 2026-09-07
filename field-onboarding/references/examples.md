@@ -2,7 +2,39 @@
 
 Use these examples as behavioral targets, not scripts to copy verbatim. Preserve the workflow while adapting terminology, depth, and language to the user's field.
 
-## Example 1 — Field-level onboarding from an adjacent specialty
+## Example 1 — When not to run the ladder
+
+**User**
+> Quick question: in this field, what does "MRO" stand for?
+
+**Good response**
+
+Answer it. Do not calibrate, do not open the intake, do not climb.
+> MRO is *mean-field reorientation* in this context (some papers write it out as
+> molecular reorientation). It is the term used for the population-averaged
+> alignment change, as opposed to the single-molecule picture.
+>
+> If you want the fuller picture of how it fits the rest of the framework, I can
+> walk you up from the motivation.
+
+**Why this is good**
+
+- It passes the one-turn test, so the ladder never starts.
+- The offer is one line at the end, made once. If the user does not take it, it
+  is dropped.
+- No prerequisite checklist in front of a two-word answer.
+
+**Also do not run the ladder when**
+
+- the user is a specialist asking a specific technical question inside their own
+  field;
+- the user asked for it short ("quickly", "TL;DR", "简单说");
+- the task is translation, proofreading, formatting, debugging, or a search with
+  a known target;
+- the user is blocked mid-experiment and needs the fix;
+- the user already declined the ladder earlier in the session.
+
+## Example 2 — Field-level onboarding from an adjacent specialty
 
 **User**
 
@@ -32,7 +64,7 @@ Start with Step 0 rather than immediately teaching topology. Name a small set of
 - It establishes the user's target before choosing depth.
 - It does not dump the five-rung ladder in the first turn.
 
-## Example 2 — Decode a dense abstract
+## Example 3 — Decode a dense abstract
 
 **User**
 
@@ -57,7 +89,7 @@ Do not force the full Step 0 intake. Enter Decode mode.
 
 When the actual abstract is available, preserve its terminology and scientific scope. Do not insert mechanisms, causality, or conclusions that the authors did not state.
 
-## Example 3 — Chinese request about chiral phonons
+## Example 4 — Chinese request about chiral phonons
 
 **User**
 
@@ -87,7 +119,7 @@ Reply in Chinese and calibrate only prerequisites that matter for an experimenta
 - It adapts the ladder to the stated hands-on target by preparing to expand Rung 4.
 - It does not assume that valley physics automatically proves phonon chirality.
 
-## Example 4 — Checkpoint and branching
+## Example 5 — Checkpoint and branching
 
 After teaching a rung about Berry curvature, do not end with only "Does that make sense?"
 
@@ -105,7 +137,7 @@ After teaching a rung about Berry curvature, do not end with only "Does that mak
 - If the user chooses **C**, explain the difference between *local nonzero Berry curvature* and *cancellation after summing contributions* using a momentum-space picture.
 - If the user says this is trivial, skip ahead rather than adding more elementary questions.
 
-## Example 5 — Respect an explicit request for a compact overview
+## Example 6 — Respect an explicit request for a compact overview
 
 **User**
 
@@ -115,7 +147,7 @@ After teaching a rung about Berry curvature, do not end with only "Does that mak
 
 Honor the request instead of enforcing one rung per turn. Give a compact five-rung roadmap, identify likely prerequisites, and let the user choose where to zoom in. Keep the overview diagnostic rather than turning every rung into a full lecture.
 
-## Example 6 — Distinguish source claim from inference
+## Example 7 — Distinguish source claim from inference
 
 **User**
 
@@ -132,3 +164,44 @@ Honor the request instead of enforcing one rung per turn. Give a compact five-ru
 > **Not established by that statement alone:** It does not automatically imply that conventional circularly polarized Raman can detect the mode. Raman visibility depends on momentum conservation, Raman tensors or higher-order processes, resonance conditions, and the experimental geometry.
 
 The exact technical content must be adjusted to the supplied source and verified when freshness or source-specific claims matter.
+
+## Example 8 — Labelling a reading path
+
+At Rung 5 the skill names specific works, which is where fabrication happens.
+Every named item is either verified in this session or explicitly marked
+unverified.
+
+**Good behavior, with search available**
+> **Reading path**
+>
+> 1. *Orientation:* [review title], [journal, year] — DOI 10.xxxx/yyyyy. Verified.
+>    Read sections 2 and 4 only; the rest is a survey you do not need yet.
+> 2. *Foundation:* [landmark paper], arXiv:XXXX.XXXXX. Verified. This is where
+>    the central construction is introduced.
+> 3. *Frontier:* [recent paper], [year]. Verified, published within the last
+>    18 months. Note that its central claim is contested by [group]; read the
+>    comment as well.
+
+**Good behavior, without search available**
+> I cannot verify references in this session, so treat every item below as
+> **from memory, unverified** and check before citing.
+>
+> - A review by [author group] in [journal], roughly [year]. From memory,
+>   unverified.
+> - For the current frontier I would rather give you a search than a citation I
+>   cannot check: look at the arXiv listing for [category] with the query
+>   [query], and at the recent output of [group].
+
+**Why this is good**
+
+- No bare citations. Every item carries its bucket.
+- No identifier is attached that was not actually retrieved.
+- Where verification is impossible, an executable pointer replaces the citation
+  rather than padding the list.
+- Fewer verified items beat a longer unverified list.
+
+**Bad**
+> Here are five key papers: [five plausible titles with plausible authors, years,
+> and DOIs, none of them checked].
+
+A fabricated DOI is worse than no DOI, because it looks checked.
