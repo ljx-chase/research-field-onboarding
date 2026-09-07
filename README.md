@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-v1.1.1-blue.svg)](#changelog)
+[![Claude Skill](https://img.shields.io/badge/Claude-Skill-d97757.svg)](field-onboarding/SKILL.md)
 [![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
 [![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
 [![Agent Friendly](https://img.shields.io/badge/agents-cross--agent-6f42c1.svg)](AGENTS.md)
