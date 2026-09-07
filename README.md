@@ -6,6 +6,10 @@
 [![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
 [![Agent Friendly](https://img.shields.io/badge/agents-cross--agent-6f42c1.svg)](AGENTS.md)
 
+<p align="center">
+  <img src="docs/before-after.svg" alt="Left: a general assistant answers a beginner's question about topological photonics with twelve unexplained terms. Right: Field Onboarding first asks the reader to mark four prerequisites as used it, learned it, or new." width="960">
+</p>
+
 A reusable research-onboarding skill for **ChatGPT, Codex, and other instruction-following agents**. It guides researchers into unfamiliar scientific fields step by step and decodes dense papers, abstracts, talks, figure captions, and referee comments without assuming specialist knowledge too early.
 
 **Primary contributors:** LI Junxiang and Ziyan Zhou (Anna)
@@ -80,6 +84,12 @@ research-field-onboarding/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── .gitignore
+├── docs/
+│   ├── before-after.svg        # README graphic (English)
+│   ├── before-after-zh.svg     # Chinese variant, for posts
+│   └── *.png                   # 2x raster fallbacks
+├── tools/
+│   └── make_demo.py            # regenerates the graphics
 └── field-onboarding/
     ├── SKILL.md
     ├── agents/
