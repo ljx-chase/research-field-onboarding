@@ -1,8 +1,32 @@
 # Field Onboarding
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](#)
+[![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
+[![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
+[![Agent Friendly](https://img.shields.io/badge/agents-cross--agent-6f42c1.svg)](AGENTS.md)
+
 A reusable research-onboarding skill for **ChatGPT, Codex, and other instruction-following agents**. It guides researchers into unfamiliar scientific fields step by step and decodes dense papers, abstracts, talks, figure captions, and referee comments without assuming specialist knowledge too early.
 
 **Primary contributors:** LI Junxiang and Ziyan Zhou (Anna)
+
+## Quick start — try it in under a minute
+
+**ChatGPT:** install the packaged `skill.zip` from the latest release, then try:
+
+```text
+I understand nonlinear optics but not topological photonics. Guide me into the field step by step.
+```
+
+**Codex or another repository-aware agent:** clone/open this repository so the agent can read `AGENTS.md`, then try:
+
+```text
+Use the Field Onboarding workflow to teach me chiral phonons. My background is experimental optics.
+```
+
+**No installation / manual adaptation:** give your agent `field-onboarding/SKILL.md` as its instruction file and ask one of the example prompts below.
+
+A good first response should calibrate your prerequisites and learning target instead of immediately dumping a full expert-level explanation.
 
 ## Core workflow
 
@@ -83,24 +107,6 @@ The skill is deliberately tool-agnostic. For another agent framework:
 - Verify freshness-sensitive information when tools permit.
 - Use diagnostic checkpoints instead of generic comprehension questions.
 - Degrade gracefully when an agent lacks browsing, file access, or interactivity.
-
-## Publish to GitHub
-
-1. Create a new GitHub repository, for example `field-onboarding`.
-2. In this local repository, run:
-
-```bash
-git init
-git add .
-git commit -m "Initial public release of Field Onboarding"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/field-onboarding.git
-git push -u origin main
-```
-
-3. On GitHub, add a short description such as: `A cross-agent skill for step-by-step onboarding into unfamiliar research fields and decoding scientific literature.`
-4. Suggested topics: `ai-agents`, `chatgpt`, `codex`, `research`, `scientific-literature`, `education`, `agent-skills`.
-5. Create a release and attach the validated `skill.zip` if you want users to install the ChatGPT Skill directly.
 
 ## Contributing
 
