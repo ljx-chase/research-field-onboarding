@@ -17,7 +17,7 @@ A reusable research-onboarding skill for **ChatGPT, Codex, and other instruction
 
 ## Quick start — try it in under a minute
 
-# Claude Code
+### Claude Code
 
 One command, installs to `~/.claude/skills/`:
 
