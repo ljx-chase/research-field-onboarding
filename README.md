@@ -17,6 +17,18 @@ A reusable research-onboarding skill for **ChatGPT, Codex, and other instruction
 
 ## Quick start — try it in under a minute
 
+**Claude Code / Claude Desktop:** install with one command —
+
+```bash
+npx skills add ljx-chase/research-field-onboarding -g
+```
+
+Or copy `field-onboarding/` into `~/.claude/skills/` manually. Then try:
+
+```text
+I understand nonlinear optics but not topological photonics. Guide me into the field step by step.
+```
+
 **ChatGPT:** package the `field-onboarding/` directory as a skill (or install the release artifact if one is published), then try:
 
 ```text
