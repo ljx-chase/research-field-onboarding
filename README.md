@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-v1.1.1-blue.svg)](#changelog)
-[![Claude Skill](https://img.shields.io/badge/Claude-Skill-d97757.svg)](field-onboarding/SKILL.md)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](field-onboarding/SKILL.md)
 [![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
 [![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
 [![Agent Friendly](https://img.shields.io/badge/agents-cross--agent-6f42c1.svg)](AGENTS.md)
@@ -17,17 +17,28 @@ A reusable research-onboarding skill for **ChatGPT, Codex, and other instruction
 
 ## Quick start — try it in under a minute
 
-**Claude Code / Claude Desktop:** install with one command —
+# Claude Code
+
+One command, installs to `~/.claude/skills/`:
 
 ```bash
 npx skills add ljx-chase/research-field-onboarding -g
 ```
 
-Or copy `field-onboarding/` into `~/.claude/skills/` manually. Then try:
+Or manually:
 
-```text
-I understand nonlinear optics but not topological photonics. Guide me into the field step by step.
+```bash
+mkdir -p ~/.claude/skills
+cp -r field-onboarding ~/.claude/skills/field-onboarding
 ```
+
+Drop the `-g` (or use `.claude/skills/`) to scope it to one project instead.
+
+### Claude apps (claude.ai, Desktop, Cowork)
+
+Desktop and cloud sessions do not read `~/.claude/skills/`. Enable the skill for
+your claude.ai account instead — Customize in the Desktop sidebar, or the skills
+settings on claude.ai.
 
 **ChatGPT:** package the `field-onboarding/` directory as a skill (or install the release artifact if one is published), then try:
 
