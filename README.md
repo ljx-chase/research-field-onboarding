@@ -40,6 +40,8 @@ Desktop and cloud sessions do not read `~/.claude/skills/`. Enable the skill for
 your claude.ai account instead — Customize in the Desktop sidebar, or the skills
 settings on claude.ai.
 
+### ChatGPT Skills / Codex / other agents
+
 **ChatGPT:** package the `field-onboarding/` directory as a skill (or install the release artifact if one is published), then try:
 
 ```text
