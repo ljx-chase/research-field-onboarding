@@ -83,8 +83,11 @@ Then ask them to mark each one:
 - **new** — no real contact
 
 Present this as a short checklist, one line per prerequisite, with a one-clause
-gloss so they can tell what each item means. Use a checklist or multi-select
-control if the interface offers one.
+gloss so they can tell what each item means. Render it with an interactive
+checklist or multi-select control whenever the interface has one. Fall back to a
+plain table only when it does not. Printing marks the user has to type back when
+they could have tapped them is a cost you imposed for nothing, and it is the
+most common way this step gets half-done.
 
 Also establish, in the same turn:
 
@@ -211,8 +214,8 @@ Instead pick one:
 
 - Ask them to predict something: "what happens to the signal if X doubles?"
 - Ask them to restate the core idea in their own words.
-- Give a two-question multiple-choice check on the rung just covered. Use an
-  interactive quiz control if the interface has one.
+- Give a two-question multiple-choice check on the rung just covered. Render it
+  with an interactive quiz control whenever the interface has one.
 - Ask them to spot which of two statements is the field's actual claim.
 
 Then branch:
@@ -276,6 +279,8 @@ the session gets long.
   session; guessing wrong in the easy direction is patronizing.
 - Asking "what's your background?" instead of naming the specific prerequisites.
   The user cannot audit a gap they cannot see.
+- Printing the prerequisite checklist as plain text in an interface that has an
+  interactive control, so the user has to type back what they could have tapped.
 - Dumping all five rungs in one response because the user seems smart.
 - Analogies that are pleasant but wrong. If the analogy breaks, say exactly
   where. An analogy the user over-trusts is worse than no analogy.
