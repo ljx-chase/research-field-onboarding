@@ -1,7 +1,7 @@
 # Field Onboarding
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v1.1.0-blue.svg)](#changelog)
+[![Version](https://img.shields.io/badge/version-v1.1.1-blue.svg)](#changelog)
 [![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
 [![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
 [![Agent Friendly](https://img.shields.io/badge/agents-cross--agent-6f42c1.svg)](AGENTS.md)
@@ -155,6 +155,11 @@ And a prompt it should **not** take over:
 - Degrade gracefully when an agent lacks browsing, file access, or interactivity.
 
 ## Changelog
+
+### v1.1.1
+
+- Step 0 now requires an **interactive** checklist wherever the interface has one, with a plain table as the explicit fallback. The previous wording (`Use a checklist or multi-select control if the interface offers one`) was a conditional clause, and in live testing it was skipped: the prerequisite list was printed as a static table and the user had to type their marks back. Same hardening applied to the checkpoint quiz.
+- Added a matching anti-pattern.
 
 ### v1.1.0
 
