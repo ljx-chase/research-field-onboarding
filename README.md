@@ -3,7 +3,7 @@
 **English** | [简体中文](README.zh-CN.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v1.2.0-blue.svg)](#changelog)
+[![Version](https://img.shields.io/badge/version-v1.3.0-blue.svg)](#changelog)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](field-onboarding/SKILL.md)
 [![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
 [![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
@@ -139,6 +139,26 @@ normalization conventions, the agent says which one it is using and names the
 alternative, because a reader who cannot map the equation onto the paper's
 equation has not been onboarded.
 
+## How to invoke it
+
+Triggering is governed by the `description` in `field-onboarding/SKILL.md`, not
+by a magic word. Anything that signals *I do not know this field yet* should
+work. The reliable patterns:
+
+- **Name the field and ask to be taken through it.** `Guide me into <field> step
+  by step.` `I'm new to <field> — walk me through it.`
+- **State your bridge.** `I know <what you have> but not <field>.` This is the
+  strongest form: it hands the agent an anchor before it has to ask.
+- **Hand it text.** Paste an abstract, a figure caption, a referee comment, and
+  ask what it is saying.
+- **Ask for a path.** `Give me a reading path into <field>.`
+- **Say the last answer failed.** `That was too technical — start further back.`
+- **Say what it is for.** `I need to build a <setup>, teach me what I need.`
+  The stated target changes the shape and length of every rung, so saying it up
+  front is worth a sentence.
+
+Chinese works the same: `一步一步带我入门<领域>`、`这篇摘要看不懂`、`给我一条<领域>的阅读路径`。
+
 ## Example prompts
 
 - `I am new to exciton-polaritons. Walk me through the field step by step.`
@@ -194,6 +214,22 @@ research-field-onboarding/
   interactivity.
 
 ## Changelog
+
+### v1.3.0
+
+Three fixes from a live SHG onboarding session.
+
+- **Checkpoints must be scoped to the rung just taught.** The session produced a
+  question that needed a scaling law the rung never stated, so a wrong answer
+  tested the explanation rather than the reader. The skill now requires that you
+  be able to point at the sentence containing the answer, and that a user who
+  marked exactly these prerequisites could answer it.
+- **Anchors no longer widen silently.** Marking "lasers in practice" as *used
+  it* does not license assuming femtosecond pulses. A rung that needs a narrower
+  sub-skill inside an anchor must name it and explain it, or ask.
+- **Length is now set by the target**, with a per-target table. Someone building
+  an apparatus gets Rung 1 in 100-200 words and the session spent on Rungs 3 and
+  4; someone reading a paper gets the reverse weighting.
 
 ### v1.2.0
 

@@ -3,7 +3,7 @@
 [English](README.md) | **简体中文**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v1.2.0-blue.svg)](#更新记录)
+[![Version](https://img.shields.io/badge/version-v1.3.0-blue.svg)](#更新记录)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](field-onboarding/SKILL.md)
 [![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
 [![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
@@ -87,6 +87,19 @@ npx skills add ljx-chase/research-field-onboarding -g
 
 它也会声明自己的约定。当一个领域存在互相竞争的符号、相位、单位或归一化约定时，agent 会说明自己在用哪一套、并指出另一套，因为读者如果没法把这个公式对到论文里的公式上，就等于没有被引导入门。
 
+## 怎么触发
+
+触发由 `field-onboarding/SKILL.md` 里的 `description` 决定，没有咒语。任何表达「我还不懂这个领域」的说法都应该有效。可靠的几种模式：
+
+- **说出领域名，要求被带一遍。** `一步一步带我入门<领域>`、`我刚接触<领域>，帮我建立方向感`
+- **说出你的桥。** `我懂<你已有的>，但不懂<领域>`。这是最有效的一种，等于在它开口问之前就把锚点递过去了。
+- **直接贴文本。** 摘要、图注、审稿意见，问它到底在说什么。
+- **要一条路径。** `给我一条进入<领域>的阅读路径`
+- **说上一个回答不行。** `刚才那段太技术了，往回退一步讲`
+- **说明用途。** `我要搭一套<装置>，告诉我需要哪些知识`。目标会改变每一级的形状和篇幅，值得多花一句话说清楚。
+
+英文同理：`Guide me into <field> step by step.`、`I know X but not Y.`
+
 ## 示例提示词
 
 - `我刚开始接触激子极化激元，一步一步带我入门。`
@@ -137,6 +150,14 @@ research-field-onboarding/
 - Agent 缺少联网、文件访问或交互能力时，优雅降级而不是失效。
 
 ## 更新记录
+
+### v1.3.0
+
+三条改动都来自一次真实的 SHG 入门会话。
+
+- **检查点必须限定在刚讲过的那一级之内。** 那次会话出的题需要一条该级从未讲过的标度关系，于是答错考的是讲解本身而不是读者。现在要求：你必须能指出答案所在的那句话，并且一个只标了这些前置概念的人应该答得出来。
+- **锚点不再被静默外推。** 把「实际用过激光」标成用过，不等于默认你熟悉飞秒脉冲。某一级如果需要锚点内部某个更窄的子技能，必须点名并解释，或者直接问。
+- **篇幅由目标决定**，并给出了按目标划分的字数表。要搭装置的人，第 1 级压到 100-200 词，时间花在第 3、4 级；要读论文的人则相反。
 
 ### v1.2.0
 
