@@ -1,5 +1,7 @@
 # Field Onboarding
 
+**English** | [简体中文](README.zh-CN.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-v1.2.0-blue.svg)](#changelog)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](field-onboarding/SKILL.md)
@@ -155,13 +157,14 @@ And one it should **not** take over:
 ```
 research-field-onboarding/
 ├── README.md
+├── README.zh-CN.md
 ├── AGENTS.md                   # entrypoint for repository-aware agents
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── .gitignore
 ├── docs/
 │   ├── before-after.svg        # README graphic (English)
-│   └── before-after-zh.svg     # Chinese variant
+│   └── before-after-zh.svg     # README graphic (Chinese)
 ├── tools/
 │   └── make_demo.py            # regenerates the SVGs, and PNGs on demand
 └── field-onboarding/
