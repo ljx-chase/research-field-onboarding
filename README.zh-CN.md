@@ -1,23 +1,65 @@
-# Field Onboarding
+<div align="center">
 
-[English](README.md) | **简体中文**
+<img src="docs/logo-zh.png" alt="Field Onboarding 领域入门" width="88%"/>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v1.3.0-blue.svg)](#更新记录)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](field-onboarding/SKILL.md)
-[![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
-[![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
-[![Agent Friendly](https://img.shields.io/badge/agents-cross--agent-6f42c1.svg)](AGENTS.md)
+<p>
+<a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
+<img src="https://img.shields.io/badge/version-v1.3.0-blue?style=flat-square" alt="Version"/>
+<a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
+<img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
+</p>
+
+<strong>语言</strong>: <a href="README.md">English</a> | <a href="README.zh-CN.md">中文</a>
+
+<p><strong>可运行于</strong>: <a href="#快速开始">Claude Code</a> | <a href="#快速开始">Claude 客户端</a> | <a href="#快速开始">ChatGPT Skills</a> | <a href="#快速开始">Codex</a> | <a href="#快速开始">其他遵循指令的 agent</a></p>
+
+</div>
+
+> 一个 skill，让 AI 在解释一个陌生领域之前先问你已经会什么，之后一次只讲一级，并且给出的每一篇文献都标注是否核实过。
 
 <p align="center">
-  <img src="docs/before-after-zh.svg" alt="左边：普通助手回答一个关于拓扑光子学的入门问题，一段话里塞了十二个没有解释的术语，追问之后又冒出三个。右边：Field Onboarding 先让读者把四个前置概念标成用过、学过或没接触。" width="960">
+  <img src="docs/before-after-zh.svg" alt="左边：普通助手回答一个入门问题，一段话里塞了十二个没有解释的术语，追问之后又冒出三个。右边：Field Onboarding 先让读者把四个前置概念标成用过、学过或没接触。" width="960"/>
 </p>
+
+## 快速导航
+
+| 章节 | 能帮你解决什么 |
+|---|---|
+| [为什么需要它](#为什么需要它) | 它被造出来防止的失败，以及它刻意不做的事。 |
+| [更适合谁](#更适合谁) | 你的处境是否落在它的设计范围内。 |
+| [快速开始](#快速开始) | 在 Claude Code、Claude 客户端、ChatGPT Skills 或 Codex 上安装。 |
+| [怎么触发](#怎么触发) | 中英文里能可靠触发它的几种句式。 |
+| [它和别的做法有什么不同](#它和别的做法有什么不同) | 让它区别于一条长 prompt 的四条规则。 |
+| [触发范围](#触发范围) | 它什么时候该闪开，以及 one-turn test。 |
+| [五级阶梯](#五级阶梯) | 五个级别，以及你的目标如何重塑它们。 |
+| [文献纪律](#文献纪律) | 为什么它不会给你一条没查过的引用。 |
+| [示例提示词](#示例提示词) | 可直接复制的起手式，含一条它应该拒绝接管的。 |
+| [更新记录](#更新记录) | 改了什么，以及每条改动是被哪次真实会话逼出来的。 |
+| [引用](#引用) | 在论文、报告或项目文档里引用它。 |
+| [相关项目](#相关项目) | 邻近的工具，以及这个的位置。 |
+
+## 为什么需要它
 
 **问一个你不懂的领域，AI 会按懂的人的水平回答你。** 答案是对的。但你用不了，也判断不出那十二个术语里哪些是你本来就该会的。再问一次，只会得到更多术语。
 
 问题不是模型知道得太少，而是没有人在选择起点之前，先问过你知道什么。
 
-Field Onboarding 是一个给 **Claude Code、ChatGPT、Codex 以及其他遵循指令的 agent** 用的 skill。它让 agent 先定位你，再从那个位置往上讲，一次一级。
+这个 skill **不是**知识库，里面没有各领域的综述内容。领域快照写完就开始过期，而且把五个领域做好，等于让其余所有领域悄悄降级。它携带的是一套纪律：
+
+> **先定位读者，再从那个位置往上讲，一次一级。**
+
+模型本来就懂那些物理。它默认缺的，是在开口指路之前先问你站在哪儿的习惯。
+
+## 更适合谁
+
+它是围绕一个具体处境设计的：**你在某处已经是内行，需要在另一处建立方向感。**
+
+- **要读本行以外文献的研究生和博后**。难点不在智力，而在于判断哪些陌生术语是可以跳过的。
+- **在评估邻近领域某个方法的研究者**。你需要的是决定它适不适合你的问题，而不是把它学通。
+- **被编造的引用坑过的人**。你需要一条每一项都带标注的阅读路径。
+- **审稿人、答辩委员、导师**，需要读懂本行之外的稿件。
+
+它刻意在两种情况下作用有限：你是这个领域的内行、在问本行的具体问题；或者你只想要一句话的事实回答。这两种情况下它被设计成闪开。见[触发范围](#触发范围)。
 
 ## 快速开始
 
@@ -44,6 +86,19 @@ npx skills add ljx-chase/research-field-onboarding -g
 ```
 
 正确的第一反应是列出前置概念、问你哪些已经掌握，而不是上来就是一段定义。
+
+## 怎么触发
+
+触发由 `field-onboarding/SKILL.md` 里的 `description` 决定，没有咒语。任何表达「我还不懂这个领域」的说法都应该有效。可靠的几种模式：
+
+- **说出领域名，要求被带一遍。** `一步一步带我入门<领域>`、`我刚接触<领域>，帮我建立方向感`
+- **说出你的桥。** `我懂<你已有的>，但不懂<领域>`。这是最有效的一种，等于在它开口问之前就把锚点递过去了。
+- **直接贴文本。** 摘要、图注、审稿意见，问它到底在说什么。
+- **要一条路径。** `给我一条进入<领域>的阅读路径`
+- **说上一个回答不行。** `刚才那段太技术了，往回退一步讲`
+- **说明用途。** `我要搭一套<装置>，告诉我需要哪些知识`。目标会改变每一级的形状和篇幅，值得多花一句话说清楚。
+
+英文同理：`Guide me into <field> step by step.`、`I know X but not Y.`
 
 ## 它和别的做法有什么不同
 
@@ -87,19 +142,6 @@ npx skills add ljx-chase/research-field-onboarding -g
 
 它也会声明自己的约定。当一个领域存在互相竞争的符号、相位、单位或归一化约定时，agent 会说明自己在用哪一套、并指出另一套，因为读者如果没法把这个公式对到论文里的公式上，就等于没有被引导入门。
 
-## 怎么触发
-
-触发由 `field-onboarding/SKILL.md` 里的 `description` 决定，没有咒语。任何表达「我还不懂这个领域」的说法都应该有效。可靠的几种模式：
-
-- **说出领域名，要求被带一遍。** `一步一步带我入门<领域>`、`我刚接触<领域>，帮我建立方向感`
-- **说出你的桥。** `我懂<你已有的>，但不懂<领域>`。这是最有效的一种，等于在它开口问之前就把锚点递过去了。
-- **直接贴文本。** 摘要、图注、审稿意见，问它到底在说什么。
-- **要一条路径。** `给我一条进入<领域>的阅读路径`
-- **说上一个回答不行。** `刚才那段太技术了，往回退一步讲`
-- **说明用途。** `我要搭一套<装置>，告诉我需要哪些知识`。目标会改变每一级的形状和篇幅，值得多花一句话说清楚。
-
-英文同理：`Guide me into <field> step by step.`、`I know X but not Y.`
-
 ## 示例提示词
 
 - `我刚开始接触激子极化激元，一步一步带我入门。`
@@ -122,11 +164,16 @@ research-field-onboarding/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── .gitignore
+├── logo.png
 ├── docs/
 │   ├── before-after.svg        # README 配图（英文）
-│   └── before-after-zh.svg     # README 配图（中文）
+│   ├── before-after-zh.svg     # README 配图（中文）
+│   ├── logo.svg                # banner 的矢量源文件
+│   ├── logo-zh.png             # banner，中文
+│   └── logo-icon.png           # 方形标志，用作头像和社交预览
 ├── tools/
-│   └── make_demo.py            # 重新生成 SVG，按需生成 PNG
+│   ├── make_demo.py            # 重新生成 SVG，按需生成 PNG
+│   └── make_logo.py            # 重新生成 logo 文件
 └── field-onboarding/
     ├── SKILL.md                # 唯一的正典指令文档
     ├── agents/
@@ -190,6 +237,37 @@ research-field-onboarding/
 ## 参与贡献
 
 欢迎贡献，尤其欢迎来自物理科学以外学科的行为示例，以及「它不该触发却触发了」的负向案例。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+## 引用
+
+如果它对你的阅读或教学有帮助，可以这样引用：
+
+```bibtex
+@misc{field_onboarding_2026,
+  title        = {Field Onboarding: a cross-agent skill for step-by-step onboarding
+                  into unfamiliar research fields},
+  author       = {Li, Junxiang and Zhou, Ziyan},
+  year         = {2026},
+  howpublished = {\url{https://github.com/ljx-chase/research-field-onboarding}},
+  note         = {GitHub repository}
+}
+```
+
+## 相关项目
+
+同一空间里的邻近工具，以及这个的位置：
+
+- **[paper-search](https://github.com/ykdojo/paper-search)** — 通过 OpenAlex 检索论文。那是检索，这个是读懂。
+- **[Junshi](https://github.com/junshi-research/research-junshi)** — 追踪你的文献并给出排序过的研究点子。它假设你已经读得懂这个领域；这个 skill 管的是在那之前的阶段。
+- **[claude-scholar](https://github.com/Galaxy-Dawn/claude-scholar)** — 覆盖选题、实验、写作、rebuttal 的半自动科研工作流。范围大得多；这个 skill 只做一件事，并且被设计成可以直接塞进它们任何一个里。
+
+如果你维护着这个领域的项目而上面的描述有误，开 issue 我来改。
+
+## 致谢
+
+`SKILL.md` 遵循 Anthropic 的 Agent Skills 格式，这是同一个文件能在 Claude Code、ChatGPT Skills 和 Codex 上原样运行的原因。
+
+更新记录里有好几条改动来自真正用过它、并且告诉我它在哪里坏掉的人。那比功能建议值钱得多，也是我最希望收到的贡献。
 
 ## 许可
 

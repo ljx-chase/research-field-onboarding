@@ -1,17 +1,46 @@
-# Field Onboarding
+<div align="center">
 
-**English** | [简体中文](README.zh-CN.md)
+<img src="logo.png" alt="Field Onboarding" width="88%"/>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v1.3.0-blue.svg)](#changelog)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](field-onboarding/SKILL.md)
-[![ChatGPT Skill](https://img.shields.io/badge/ChatGPT-Skill-10a37f.svg)](field-onboarding/SKILL.md)
-[![Codex Compatible](https://img.shields.io/badge/Codex-compatible-111827.svg)](AGENTS.md)
-[![Agent Friendly](https://img.shields.io/badge/agents-cross--agent-6f42c1.svg)](AGENTS.md)
+<p>
+<a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
+<img src="https://img.shields.io/badge/version-v1.3.0-blue?style=flat-square" alt="Version"/>
+<a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
+<img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
+</p>
+
+<strong>Language</strong>: <a href="README.md">English</a> | <a href="README.zh-CN.md">中文</a>
+
+<p><strong>Runs on</strong>: <a href="#quick-start">Claude Code</a> | <a href="#quick-start">Claude apps</a> | <a href="#quick-start">ChatGPT Skills</a> | <a href="#quick-start">Codex</a> | <a href="#quick-start">any instruction-following agent</a></p>
+
+</div>
+
+> A skill that makes an AI assistant ask what you already know before it explains
+> an unfamiliar research field, teach one rung at a time, and label every paper
+> it cites as verified or unverified.
 
 <p align="center">
-  <img src="docs/before-after.svg" alt="Left: a general assistant answers a beginner's question about topological photonics with twelve unexplained terms, and answers the follow-up with three more. Right: Field Onboarding first asks the reader to mark four prerequisites as used it, learned it, or new." width="960">
+  <img src="docs/before-after.svg" alt="Left: a general assistant answers a beginner's question with twelve unexplained terms, and answers the follow-up with three more. Right: Field Onboarding first asks the reader to mark four prerequisites as used it, learned it, or new." width="960"/>
 </p>
+
+## Quick navigation
+
+| Section | What it helps with |
+|---|---|
+| [Why this exists](#why-this-exists) | The failure it was built to prevent, and what it deliberately does not do. |
+| [Who this is for](#who-this-is-for) | Whether your situation matches what it was designed around. |
+| [Quick start](#quick-start) | Install it on Claude Code, the Claude apps, ChatGPT Skills, or Codex. |
+| [How to invoke it](#how-to-invoke-it) | The phrasings that reliably trigger it, in English and Chinese. |
+| [What it does differently](#what-it-does-differently) | The four rules that separate it from a long custom instruction. |
+| [Scope](#scope-when-it-fires-and-when-it-does-not) | When it should stay out of the way, and the one-turn test. |
+| [The ladder](#the-ladder) | The five rungs, and how your stated target reshapes them. |
+| [Reference discipline](#reference-discipline) | Why it will not hand you a citation it has not checked. |
+| [Example prompts](#example-prompts) | Copy-paste starting points, including one it should decline. |
+| [Changelog](#changelog) | What changed, and which live session forced each change. |
+| [Citation](#citation) | Cite it in a paper, report, or project doc. |
+| [Related projects](#related-projects) | Neighbouring tools, and how this one differs. |
+
+## Why this exists
 
 **Ask an assistant about a field you do not know, and it will answer at the level
 of someone who already does.** The answer is correct. You cannot use it, and you
@@ -21,9 +50,34 @@ again and you get more terms.
 The problem is not that the model knows too little. It is that nobody asked you
 what you know before choosing where to start.
 
-Field Onboarding is a skill for **Claude Code, ChatGPT, Codex, and other
-instruction-following agents**. It makes the agent locate you first, then teach
-upward from there, one step at a time.
+This skill is **not** a knowledge base, and it does not carry a library of field
+summaries. A field-specific corpus goes stale the moment it is written, and
+shipping five fields well would silently degrade every other field. What it
+carries instead is a discipline:
+
+> **locate the reader first, then teach upward from there, one step at a time.**
+
+The model already knows the physics. What it lacks, by default, is the habit of
+asking where you are standing before it starts pointing.
+
+## Who this is for
+
+This is built around a specific situation: **you are competent somewhere, and you
+need to get oriented somewhere else.**
+
+- **Graduate students and postdocs** reading outside their specialty, where the
+  hard part is not intelligence but knowing which of the unfamiliar terms you are
+  allowed to skip.
+- **Researchers evaluating a method** from a neighbouring field, who need to
+  decide whether it fits their problem rather than to master it.
+- **Anyone who has been burned by a fabricated citation**, and wants a reading
+  path where every item is labelled.
+- **Reviewers, examiners, and supervisors** who have to parse a manuscript
+  outside their area.
+
+It is deliberately less useful if you are a specialist asking inside your own
+field, or if you want a one-line factual answer. In both cases it is designed to
+get out of the way. See [Scope](#scope-when-it-fires-and-when-it-does-not).
 
 ## Quick start
 
@@ -59,6 +113,26 @@ I understand nonlinear optics but not topological photonics. Guide me into the f
 
 A good first response names the prerequisites and asks which ones you already
 have. It does not open with a paragraph of definitions.
+
+## How to invoke it
+
+Triggering is governed by the `description` in `field-onboarding/SKILL.md`, not
+by a magic word. Anything that signals *I do not know this field yet* should
+work. The reliable patterns:
+
+- **Name the field and ask to be taken through it.** `Guide me into <field> step
+  by step.` `I'm new to <field> — walk me through it.`
+- **State your bridge.** `I know <what you have> but not <field>.` This is the
+  strongest form: it hands the agent an anchor before it has to ask.
+- **Hand it text.** Paste an abstract, a figure caption, a referee comment, and
+  ask what it is saying.
+- **Ask for a path.** `Give me a reading path into <field>.`
+- **Say the last answer failed.** `That was too technical — start further back.`
+- **Say what it is for.** `I need to build a <setup>, teach me what I need.`
+  The stated target changes the shape and length of every rung, so saying it up
+  front is worth a sentence.
+
+Chinese works the same: `一步一步带我入门<领域>`、`这篇摘要看不懂`、`给我一条<领域>的阅读路径`。
 
 ## What it does differently
 
@@ -139,26 +213,6 @@ normalization conventions, the agent says which one it is using and names the
 alternative, because a reader who cannot map the equation onto the paper's
 equation has not been onboarded.
 
-## How to invoke it
-
-Triggering is governed by the `description` in `field-onboarding/SKILL.md`, not
-by a magic word. Anything that signals *I do not know this field yet* should
-work. The reliable patterns:
-
-- **Name the field and ask to be taken through it.** `Guide me into <field> step
-  by step.` `I'm new to <field> — walk me through it.`
-- **State your bridge.** `I know <what you have> but not <field>.` This is the
-  strongest form: it hands the agent an anchor before it has to ask.
-- **Hand it text.** Paste an abstract, a figure caption, a referee comment, and
-  ask what it is saying.
-- **Ask for a path.** `Give me a reading path into <field>.`
-- **Say the last answer failed.** `That was too technical — start further back.`
-- **Say what it is for.** `I need to build a <setup>, teach me what I need.`
-  The stated target changes the shape and length of every rung, so saying it up
-  front is worth a sentence.
-
-Chinese works the same: `一步一步带我入门<领域>`、`这篇摘要看不懂`、`给我一条<领域>的阅读路径`。
-
 ## Example prompts
 
 - `I am new to exciton-polaritons. Walk me through the field step by step.`
@@ -182,11 +236,16 @@ research-field-onboarding/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── .gitignore
+├── logo.png
 ├── docs/
 │   ├── before-after.svg        # README graphic (English)
-│   └── before-after-zh.svg     # README graphic (Chinese)
+│   ├── before-after-zh.svg     # README graphic (Chinese)
+│   ├── logo.svg                # vector source of the banner
+│   ├── logo-zh.png             # banner, Chinese
+│   └── logo-icon.png           # square mark, for avatars and previews
 ├── tools/
-│   └── make_demo.py            # regenerates the SVGs, and PNGs on demand
+│   ├── make_demo.py            # regenerates the SVGs, and PNGs on demand
+│   └── make_logo.py            # regenerates the logo files
 └── field-onboarding/
     ├── SKILL.md                # the canonical instruction document
     ├── agents/
@@ -289,6 +348,48 @@ Three fixes from a live SHG onboarding session.
 Contributions are welcome, particularly behavioral examples from disciplines
 other than the physical sciences, and negative cases where the skill fires when
 it should not. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Citation
+
+If this skill helps your reading or your teaching, you can cite the repository:
+
+```bibtex
+@misc{field_onboarding_2026,
+  title        = {Field Onboarding: a cross-agent skill for step-by-step onboarding
+                  into unfamiliar research fields},
+  author       = {Li, Junxiang and Zhou, Ziyan},
+  year         = {2026},
+  howpublished = {\url{https://github.com/ljx-chase/research-field-onboarding}},
+  note         = {GitHub repository}
+}
+```
+
+## Related projects
+
+Neighbouring tools in the same space, and where this one sits relative to them:
+
+- **[paper-search](https://github.com/ykdojo/paper-search)** — finds papers via
+  OpenAlex. Retrieval; this skill is comprehension.
+- **[Junshi](https://github.com/junshi-research/research-junshi)** — tracks your
+  literature and proposes ranked research ideas. Assumes you already read the
+  field; this skill is for before that.
+- **[claude-scholar](https://github.com/Galaxy-Dawn/claude-scholar)** — a full
+  semi-automated research workflow spanning ideation, experiments, writing, and
+  rebuttal. Much larger scope; this skill does one thing and is designed to be
+  droppable into any of them.
+
+If you maintain something in this space and the description above is wrong, open
+an issue and I will fix it.
+
+## Acknowledgments
+
+The `SKILL.md` format follows Anthropic's Agent Skills convention, which is what
+makes the same file run under Claude Code, ChatGPT Skills, and Codex without
+modification.
+
+Several changes in the changelog came from people using it and telling me where
+it broke. That is worth more than a feature request, and it is the contribution
+I most want.
 
 ## License
 
