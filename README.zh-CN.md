@@ -36,7 +36,6 @@
 | [示例提示词](#示例提示词) | 可直接复制的起手式，含一条它应该拒绝接管的。 |
 | [更新记录](#更新记录) | 改了什么，以及每条改动是被哪次真实会话逼出来的。 |
 | [引用](#引用) | 在论文、报告或项目文档里引用它。 |
-| [相关项目](#相关项目) | 邻近的工具，以及这个的位置。 |
 
 ## 为什么需要它
 
@@ -252,16 +251,6 @@ research-field-onboarding/
   note         = {GitHub repository}
 }
 ```
-
-## 相关项目
-
-同一空间里的邻近工具，以及这个的位置：
-
-- **[paper-search](https://github.com/ykdojo/paper-search)** — 通过 OpenAlex 检索论文。那是检索，这个是读懂。
-- **[Junshi](https://github.com/junshi-research/research-junshi)** — 追踪你的文献并给出排序过的研究点子。它假设你已经读得懂这个领域；这个 skill 管的是在那之前的阶段。
-- **[claude-scholar](https://github.com/Galaxy-Dawn/claude-scholar)** — 覆盖选题、实验、写作、rebuttal 的半自动科研工作流。范围大得多；这个 skill 只做一件事，并且被设计成可以直接塞进它们任何一个里。
-
-如果你维护着这个领域的项目而上面的描述有误，开 issue 我来改。
 
 ## 致谢
 

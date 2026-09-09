@@ -38,7 +38,6 @@
 | [Example prompts](#example-prompts) | Copy-paste starting points, including one it should decline. |
 | [Changelog](#changelog) | What changed, and which live session forced each change. |
 | [Citation](#citation) | Cite it in a paper, report, or project doc. |
-| [Related projects](#related-projects) | Neighbouring tools, and how this one differs. |
 
 ## Why this exists
 
@@ -363,23 +362,6 @@ If this skill helps your reading or your teaching, you can cite the repository:
   note         = {GitHub repository}
 }
 ```
-
-## Related projects
-
-Neighbouring tools in the same space, and where this one sits relative to them:
-
-- **[paper-search](https://github.com/ykdojo/paper-search)** — finds papers via
-  OpenAlex. Retrieval; this skill is comprehension.
-- **[Junshi](https://github.com/junshi-research/research-junshi)** — tracks your
-  literature and proposes ranked research ideas. Assumes you already read the
-  field; this skill is for before that.
-- **[claude-scholar](https://github.com/Galaxy-Dawn/claude-scholar)** — a full
-  semi-automated research workflow spanning ideation, experiments, writing, and
-  rebuttal. Much larger scope; this skill does one thing and is designed to be
-  droppable into any of them.
-
-If you maintain something in this space and the description above is wrong, open
-an issue and I will fix it.
 
 ## Acknowledgments
 

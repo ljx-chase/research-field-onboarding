@@ -7,13 +7,13 @@ Writes: logo.png              banner, English, for the README header
         docs/logo-icon.png    square mark, for avatars and social previews
         docs/logo.svg         vector source of the English banner
 
-The mark is a five-rung ladder in three states: the bottom two rungs solid
-(used it), the middle one half (learned it), the top two outlined (new). It
-carries both halves of the skill at once, the five teaching rungs and the
-three-state calibration.
+The mark is a doorway, taking the Chinese name 入门 literally. The open leaf
+is solid because it is the field the reader already has; the opening is pale
+because the new field has been entered but not filled in.
 """
 
 from html import escape
+import math
 from pathlib import Path
 
 import cairosvg
@@ -38,65 +38,97 @@ def txt(x, y, s, *, font, size, fill=BODY, weight="normal", anchor="start",
             f'letter-spacing="{spacing}">{escape(s)}</text>')
 
 
-def ladder(cx, cy, scale=1.0):
-    """Five-rung ladder, filled bottom-up: 2 solid, 1 half, 2 outlined."""
-    w, h = 126 * scale, 26 * scale          # rung size
-    gap = 19 * scale
-    rail_w = 7 * scale
-    n = 5
-    total_h = n * h + (n - 1) * gap
-    x = cx - w / 2
-    y0 = cy - total_h / 2
-    out = []
+TINT = "#E7EDF6"
 
-    # rails
-    for rx in (x - rail_w - 6 * scale, x + w + 6 * scale):
-        out.append(f'<rect x="{rx:.1f}" y="{y0 - 8 * scale:.1f}" '
-                   f'width="{rail_w:.1f}" height="{total_h + 16 * scale:.1f}" '
-                   f'rx="{rail_w / 2:.1f}" fill="{INK}"/>')
 
-    # rungs, top row first
-    states = ["open", "open", "half", "solid", "solid"]
-    for i, state in enumerate(states):
-        y = y0 + i * (h + gap)
-        r = 5 * scale
-        if state == "solid":
-            out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" '
-                       f'height="{h:.1f}" rx="{r:.1f}" fill="{BLUE}"/>')
-        elif state == "half":
-            out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" '
-                       f'height="{h:.1f}" rx="{r:.1f}" fill="{PAPER}" '
-                       f'stroke="{BLUE}" stroke-width="{3 * scale:.1f}"/>')
-            out.append(f'<path d="M {x + r:.1f} {y:.1f} '
-                       f'H {x + w / 2:.1f} V {y + h:.1f} '
-                       f'H {x + r:.1f} A {r:.1f} {r:.1f} 0 0 1 {x:.1f} '
-                       f'{y + h - r:.1f} V {y + r:.1f} '
-                       f'A {r:.1f} {r:.1f} 0 0 1 {x + r:.1f} {y:.1f} Z" '
-                       f'fill="{BLUE}"/>')
-        else:
-            out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" '
-                       f'height="{h:.1f}" rx="{r:.1f}" fill="none" '
-                       f'stroke="{BLUE_SOFT}" stroke-width="{3.5 * scale:.1f}"/>')
-    return "".join(out)
+def stairs(cx, cy, scale=1.0, compact=False):
+    """Side view. A wall seen edge on, its door swung open toward the viewer,
+    steps rising away behind it, and the new field at the top.
+
+    The leaf is solid because it is the field the reader already has.
+    Everything past the threshold is outline only: entered, not filled in."""
+    e = []
+    G = 160.0
+    tw, lw = 7.5, 9.0
+    jamb_w, jamb_top = 15.0, 6.0
+    ld, flare = 60.0, 0.0
+
+    sw, sh, n = 52.0, 34.0, 3
+    ext = 82.0
+    sx = jamb_w
+    top_x = sx + n * sw + ext
+    top_y = G - n * sh
+    ar = 42.0
+
+    if compact:
+        xmin, xmax = -ld - 20, jamb_w + 52
+        ymin, ymax = jamb_top - 8, G + 8
+    else:
+        xmin, xmax = -ld - 20, top_x + 20
+        ymin, ymax = top_y - 2 * ar * 0.72 - 22, G + 8
+
+    # steps rising away behind the wall, and the ground they end on
+    if not compact:
+        d = [f'M {sx} {G}']
+        for i in range(n):
+            d.append(f'V {G - (i + 1) * sh:.1f}')
+            d.append(f'H {sx + (i + 1) * sw + (ext if i == n - 1 else 0):.1f}')
+        e.append(f'<path d="{" ".join(d)}" fill="none" stroke="{BLUE_SOFT}" '
+                 f'stroke-width="{tw}" stroke-linecap="round" '
+                 f'stroke-linejoin="round"/>')
+
+        # the new field, waiting at the top: an atom, drawn open
+        acx = top_x - ext / 2
+        tilt = math.radians(32)
+        half_v = math.hypot(ar * math.sin(tilt), ar * 0.42 * math.cos(tilt))
+        acy = top_y - half_v - 10
+        for ang in (-32, 32):
+            e.append(f'<ellipse cx="{acx:.1f}" cy="{acy:.1f}" rx="{ar:.1f}" '
+                     f'ry="{ar * 0.42:.1f}" fill="none" stroke="{BLUE_SOFT}" '
+                     f'stroke-width="{tw}" transform="rotate({ang} {acx:.1f} '
+                     f'{acy:.1f})"/>')
+        e.append(f'<circle cx="{acx:.1f}" cy="{acy:.1f}" r="{ar * 0.27:.1f}" '
+                 f'fill="{BLUE}"/>')
+
+    # the door, swung open toward the viewer
+    e.append(f'<path d="M {jamb_w:.1f} {jamb_top:.1f} L {-ld:.1f} '
+             f'{jamb_top - flare:.1f} V {G} H {jamb_w:.1f} Z" fill="{BLUE}" '
+             f'stroke="{INK}" stroke-width="3.5" stroke-linejoin="round"/>')
+    e.append(f'<circle cx="{-ld + 17:.1f}" cy="{(jamb_top + G) / 2:.1f}" '
+             f'r="7.5" fill="{PAPER}"/>')
+
+    # the wall itself, seen edge on, drawn over the hinge side of the leaf
+    e.append(f'<rect x="0" y="{jamb_top - 10:.1f}" width="{jamb_w}" '
+             f'height="{G - jamb_top + 10:.1f}" rx="{jamb_w / 2:.1f}" '
+             f'fill="{INK}"/>')
+
+    # the ground, running the full width of the climb
+    ground_r = (xmax - 10) if compact else (sx + sw * 1.5)
+    e.append(f'<path d="M {xmin + 10:.1f} {G} H {ground_r:.1f}" '
+             f'stroke="{INK}" stroke-width="{lw}" stroke-linecap="round"/>')
+
+    mx, my = (xmin + xmax) / 2, (ymin + ymax) / 2
+    return (f'<g transform="translate({cx - scale*mx:.1f},{cy - scale*my:.1f}) '
+            f'scale({scale})">' + "".join(e) + '</g>')
 
 
 def banner(lang="en"):
     W, H = 1600, 470
     if lang == "en":
         w1, w2 = "Field", "Onboarding"
-        tag = "Locate the reader first. Then teach upward, one rung at a time."
-        size, tsize = 128, 34
+        tag = "Find the door into a field you do not know yet. Then step through it."
+        size, tsize = 104, 32
     else:
         w1, w2 = "领域", "入门"
-        tag = "先问你已经会什么，再往上讲，一次一级。"
+        tag = "先问你已经会什么，再带你进门，一次一级。"
         size, tsize = 132, 36
 
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
          f'viewBox="0 0 {W} {H}">',
          f'<rect width="{W}" height="{H}" fill="{PAPER}"/>',
-         ladder(210, 238, 1.18)]
+         stairs(246, 224, 0.95)]
 
-    tx = 380
+    tx = 470
     base = 258
     s.append(txt(tx, base, w1, font=SERIF, size=size, fill=INK, weight="bold"))
     off = len(w1) * (size * 0.60 if lang == "en" else size * 1.02) + size * 0.22
@@ -117,7 +149,7 @@ def icon():
          f'<rect width="{W}" height="{W}" rx="96" fill="{PAPER}"/>',
          f'<rect x="6" y="6" width="{W-12}" height="{W-12}" rx="90" '
          f'fill="none" stroke="{RULE}" stroke-width="4"/>',
-         ladder(256, 256, 1.46),
+         stairs(256, 256, 1.95, compact=True),
          '</svg>']
     return "".join(s)
 
