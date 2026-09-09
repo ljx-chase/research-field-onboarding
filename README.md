@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.4.0-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.5.0-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -251,6 +251,13 @@ research-field-onboarding/
     │   └── openai.yaml
     └── references/
         ├── examples.md         # positive and negative behavioral examples
+        ├── evals.md            # regression set, run before merging a change
+        ├── pacing.md           # per-target word budgets and routing
+        ├── unsettled-fields.md # grounded mode, and when to refuse
+        ├── citations.md        # the verified / unverified rule
+        ├── checkpoints.md      # question types and branching
+        ├── decode-mode.md      # handling supplied text
+        ├── anti-patterns.md    # ways this has failed
         └── search-recipes.md   # open-API query templates for verification
 ```
 
@@ -273,6 +280,14 @@ research-field-onboarding/
   interactivity.
 
 ## Changelog
+
+### v1.5.0
+
+No behavior was added in this release. Both changes exist because the
+instruction file had grown past the length at which rules are reliably followed.
+
+- **`SKILL.md` is now a control plane.** It had reached about 4,000 words, and two rules had already been observed going unfollowed at a shorter length. Unsettled-field handling, decode mode, citation labelling, pacing, checkpoint mechanics, and anti-patterns moved into `references/` and are loaded when the moment for them arrives. The entrypoint is down to roughly 2,700 words with no rule removed.
+- **Added `references/evals.md`**: six negative cases, ten positive ones, and a multilingual pair, each with a binary pass condition. Contributing now requires running the relevant cases in a fresh session and pasting the results. The set includes the two failures that live testing found, so neither can silently return.
 
 ### v1.4.0
 

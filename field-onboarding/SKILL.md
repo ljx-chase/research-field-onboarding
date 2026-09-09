@@ -10,9 +10,7 @@ losing them.
 
 The failure this skill exists to prevent: answering a beginner's question at the
 level of a specialist, so the answer is technically correct and completely
-useless.
-
-## When not to use this skill
+useless.## When not to use this skill
 
 This is a teaching mode, not a default. Running the full ladder on someone who
 wanted one sentence is its own failure, and a more irritating one than pitching
@@ -153,88 +151,22 @@ and ask about depth only if the depth they want is ambiguous.
 
 ## When the field is not settled
 
-In an emerging or contested field there is no consensus to teach from, so the
-usual standard, be correct, is not available. Use these instead.
-
-- **Say it up front.** One line: no textbook exists, the vocabulary is not
-  standardized, this is what the last few years of papers look like.
-- **Ground the substantive claims.** In a settled field, citing a source for a
-  textbook fact is noise. Here it is the only thing separating teaching from
-  invention. Attribute the central claims of Rungs 3 to 5 to specific work,
-  under the same verified / unverified labels as everywhere else, and mark
-  anything that is your own synthesis as your synthesis.
-- **Flag unstable vocabulary.** Different groups routinely name the same object
-  differently before a field settles. Say when a term has competitors, and
-  which paper uses which. A reader who learns one group's word and then reads
-  another group's paper will think they have found a new concept.
-- **Invert Rung 5.** There is no review to orient with. Give the two or three
-  groups pushing the area, what each is claiming, and where they disagree.
-- **State your horizon.** Your picture of a fast-moving field ages badly. Say
-  when it is from, and say plainly that the last year may be missing.
-
-Treat prerequisites the same way: in an emerging field your prerequisite list is
-inferred from adjacent settled fields, not read off a curriculum. Present it as
-provisional and say so.
-
-## When you cannot onboard them
-
-Sometimes the honest answer is that you cannot do this reliably. That is the
-case when the field is too new or too narrow for you to have a real picture and
-you have no way to search.
-
-Do not fill the gap with plausible-sounding structure. Say what you can and
-cannot do, then hand over a way to find the ground truth themselves:
-
-- the search that would surface a review, written out so they can run it;
-- the two or three venues or groups the work would appear in, if you know them;
-- what to read the review for, which is the prerequisite list you could not
-  give them.
-
-See [references/search-recipes.md](references/search-recipes.md) for query
-templates. Sending someone to a real review beats onboarding them into a field
-you have reconstructed.
+If the calibration check found the field emerging, contested, or beyond what you
+can reliably describe, load
+[references/unsettled-fields.md](references/unsettled-fields.md) before Rung 1
+and follow it for the rest of the session. In short: attribute the central
+claims, flag vocabulary that is not yet standard, say how old your picture is,
+and when you cannot form a picture at all, hand over a search instead of
+teaching.
 
 ## The ladder
 
 Climb these in order. One rung per turn. Announce which rung you are on and
 what comes next.
 
-**Length is set by the target, not by the rung.** The ceilings below are
-defaults for someone who wants to read a paper; shift them as the target
-demands.
-
-| Target | Rung 1 | Rungs 2, 5 | Rungs 3, 4 |
-| --- | --- | --- | --- |
-| Read one paper | 150-250 | 300-500 | 400-700 |
-| Judge whether a method fits | 200-300 | 200-400 | 500-700, weighted to 4 |
-| Do it hands-on | 100-200 | 200-300 | 500-700, weighted to 4 |
-| Follow a talk | 100-200 | 300-400 | 200-400 |
-
-Someone who wants to build the apparatus does not need the field's origin story
-at length. Give them the one sentence that explains why the method exists, then
-spend the session on Rungs 3 and 4. Compressing Rung 1 is not skipping it.
-
-Do not compress a derivation into a summary to hit a number. If a rung genuinely
-needs two turns, take two turns and say so at the break.
-
-### Route on the target
-
-The target you collected in Step 0 sets the shape of every rung, not just which
-one gets expanded. Use it:
-
-- **Read one paper** -> weight notation and formalism. Keep Rung 2 dense and
-  symbol-heavy; the goal is to make the page parseable.
-- **Judge whether a method fits their work** -> lead with phenomena and worked
-  numbers. Treat derivations as black boxes with stated properties, expand
-  Rung 4 into what the method can and cannot deliver, and say plainly where it
-  is a poor fit. This target is a decision, so give them what a decision needs.
-- **Do it hands-on** -> Rung 4 becomes a procedure: apparatus or pipeline,
-  typical parameters, what breaks first. Compress Rung 5 to tooling and
-  communities.
-- **Follow a talk** -> compress everything. Rung 2 and Rung 5 matter most;
-  Rung 3 can stay at the level of what the central object means.
-
-If the user gave no target, ask once, in the same turn as the prerequisites.
+Length and emphasis are both set by the reader's stated target, not by the
+rung. Load [references/pacing.md](references/pacing.md) before Rung 1 for the
+per-target word budgets and for how each target reshapes the climb.
 
 ### Rung 1 — Why this field exists
 
@@ -293,32 +225,13 @@ result has been contested or superseded since it was published.
 
 ## Naming literature
 
-Rung 5 and any reading path is where fabrication happens. A plausible title with
-a plausible author list and a plausible year is the most damaging output this
-skill can produce, because the user will go looking for it and lose an
-afternoon.
+Every specific paper, review, book, or package you name is either **verified**
+in this session with a checkable identifier, or explicitly labelled **from
+memory, unverified**. There is no third option, and an identifier you did not
+retrieve is never attached.
 
-Every specific paper, review, book, or software package you name falls into
-exactly one of two buckets, and you must mark which:
-
-- **Verified.** You looked it up in this session and confirmed it exists. Give
-  something checkable: DOI, arXiv ID, or journal, volume, and page.
-- **From memory, unverified.** You believe it exists but have not checked. Say
-  exactly that, next to the item.
-
-Never give a bare citation with no bucket. If you have no search capability, say
-so once, mark everything unverified, and do not compensate by sounding more
-confident.
-
-Prefer fewer verified items to a longer unverified list. Three papers you have
-checked beat seven you have not.
-
-When you cannot verify a specific recent paper, name the search instead: the
-venue, the group, the arXiv listing, the exact query to run. A pointer the user
-can execute is worth more than a citation they cannot trust.
-
-Never attach a DOI or arXiv ID you did not retrieve. A fabricated identifier is
-worse than no identifier, because it looks checked.
+Load [references/citations.md](references/citations.md) before producing a
+reading path or attributing a claim.
 
 ## Closing artifact
 
@@ -340,63 +253,40 @@ and the open prerequisites and skip the rest.
 
 ## Checkpoints
 
-**Scope the check to what you just taught.** The question must be answerable
-from the rung the user has just read, plus the anchors they explicitly marked.
-If answering requires a quantitative relationship, a scaling law, or a
-sub-skill you have not stated, it is not a diagnostic, it is a trap. Teach the
-scaling first, or ask a different question. A wrong answer should reveal a hole
-in your explanation, not a hole in their background.
+End each rung with a real diagnostic, never "make sense?", which always gets a
+yes. Scope it to what you just taught: you must be able to point at the sentence
+containing the answer, and a reader who marked exactly these prerequisites must
+be able to answer it. A wrong answer should reveal a hole in your explanation,
+not in their background.
 
-Two tests before you ask it. Can you point to the sentence in the rung that
-contains the answer? Would someone who marked exactly the prerequisites this
-user marked, and nothing more, be able to answer? If either is no, rewrite the
-question.
-
-At the end of each rung, do not just ask "make sense?" That always gets a yes.
-Instead pick one:
-
-- Ask them to predict something: "what happens to the signal if X doubles?"
-- Ask them to restate the core idea in their own words.
-- Give a two-question multiple-choice check on the rung just covered. Render it
-  with an interactive quiz control whenever the interface has one.
-- Ask them to spot which of two statements is the field's actual claim.
-
-Then branch:
-
-- **Solid** -> advance to the next rung.
-- **Shaky** -> re-explain from a different angle, not louder. Change the
-  analogy, drop a level of abstraction, or work a concrete number.
-- **Bored / already knew it** -> skip ahead. Ask which rung they want.
-
-If the user skips the check and just says "continue", do not re-ask. Advance,
-but fold the diagnostic into the opening of the next rung and lower your
-assumed level by one notch.
-
-The user can always say "skip to rung N" or "just give me the whole ladder".
-Honor that immediately.
+Load [references/checkpoints.md](references/checkpoints.md) for the question
+types, how to branch on the answer, and what to do when the user skips it.
 
 ## Decode mode
 
 When the user supplies an abstract, paragraph, figure caption, slide, or referee
-comment they cannot parse, do not run the ladder. Do this instead:
+comment they cannot parse, do not run the ladder. Load
+[references/decode-mode.md](references/decode-mode.md) and follow it: gist,
+term-by-term, a reconstructed passage, what you would need in order to evaluate
+it, and the four labels that keep **source claim**, **background**,
+**inference**, and **critique** apart.
 
-1. **One-sentence gist.** What it is actually saying, in plain language.
-2. **Term-by-term.** Every piece of jargon in the passage, one line each, in the
-   order it appears.
-3. **Reconstructed passage.** The same content rewritten so the user can read it:
-   same claims, no jargon, no loss of precision, nothing added.
-4. **What you would need to know to evaluate it.** The one or two background
-   pieces that separate reading the claim from judging it.
-5. **Next step.** Offer the ladder only if they want to work in the area:
-   "if you want to actually work in this area, I can walk you up from the
-   motivation."
+## References
 
-For papers or excerpts, label explicitly:
+This file is the control plane. Load a reference when the moment for it arrives,
+not up front.
 
-- **source claim** — what the authors actually state;
-- **background** — established context needed to understand it;
-- **inference** — a reasonable implication they did not state;
-- **critique** — your own assessment of limitations or evidential strength.
+| File | Load it when |
+| --- | --- |
+| `references/pacing.md` | Before Rung 1, once the target is known |
+| `references/unsettled-fields.md` | The field is emerging, contested, or beyond you |
+| `references/citations.md` | You are about to name a specific work |
+| `references/search-recipes.md` | You need to verify something, or to hand over a query |
+| `references/checkpoints.md` | Before the first checkpoint |
+| `references/decode-mode.md` | The user supplied text instead of a field |
+| `references/anti-patterns.md` | Reviewing your own output |
+| `references/examples.md` | An example would settle how a rule applies |
+| `references/evals.md` | You are changing this skill, not using it |
 
 ## Behavioral examples
 
@@ -425,40 +315,8 @@ the session gets long.
 
 ## Anti-patterns
 
-- Running the intake on a question that one turn would have answered. This is
-  the most common way to make the skill worse than no skill.
-- Skipping Step 0 and guessing at their level when calibration would have
-  changed the answer. Guessing wrong in the hard direction wastes the whole
-  session; guessing wrong in the easy direction is patronizing.
-- Asking "what's your background?" instead of naming the specific prerequisites.
-  The user cannot audit a gap they cannot see.
-- Printing the prerequisite checklist as plain text in an interface that has an
-  interactive control, so the user has to type back what they could have tapped.
-- Dumping all five rungs in one response because the user seems smart.
-- Analogies that are pleasant but wrong. If the analogy breaks, say exactly
-  where. An analogy the user over-trusts is worse than no analogy.
-- Skipping rung 1 because the motivation seems obvious. It is obvious to
-  specialists, which is the whole problem.
-- Hedging everything into mush, or the reverse: presenting a contested question
-  as settled.
-- Producing a reading list of plausible-sounding papers you have not checked,
-  or attaching an identifier you did not retrieve.
-- Asking a checkpoint question that needs a relationship the rung never stated.
-  The user then fails a test of your writing and reads it as a test of their
-  competence.
-- Widening a marked anchor to cover an adjacent skill the user never claimed.
-- Giving a hands-on learner the full origin story of the field at length when
-  they asked how to build the thing.
-- Teaching an unsettled field in the confident register of a settled one, so
-  the reader cannot tell consensus from your reconstruction.
-- Attaching a citation to every textbook sentence. Each citation slot is a
-  chance to fabricate, so citations belong where they carry weight: the reading
-  path, and the contested claims of an unsettled field.
-- Taking a target artifact at the start and never returning to it.
-- Writing an equation without saying which convention it is in, so the user
-  cannot match it against the paper in front of them.
-- Deferring to a textbook instead of explaining. Recommend reading *after*
-  teaching, not instead of it.
-- Praising the question instead of answering it.
-- Adding claims that are not in a supplied paper while presenting them as if
-  they came from it.
+The full list is in
+[references/anti-patterns.md](references/anti-patterns.md). The three that
+account for most failures: running the intake on a question one turn would have
+answered, asking a checkpoint question the rung never taught, and producing a
+reading list you have not checked.

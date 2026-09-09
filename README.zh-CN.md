@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.4.0-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.5.0-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -178,8 +178,15 @@ research-field-onboarding/
     ├── agents/
     │   └── openai.yaml
     └── references/
-        ├── examples.md
-        └── search-recipes.md         # 正向与负向的行为示例
+        ├── examples.md         # 正向与负向的行为示例
+        ├── evals.md            # 回归用例集，改动合并前要跑
+        ├── pacing.md           # 按目标划分的篇幅与路由
+        ├── unsettled-fields.md # grounded 模式，以及何时拒绝
+        ├── citations.md        # 已验证 / 未核实规则
+        ├── checkpoints.md      # 检查点题型与分支
+        ├── decode-mode.md      # 处理贴进来的文本
+        ├── anti-patterns.md    # 这个 skill 曾经怎么坏掉
+        └── search-recipes.md   # 用于验证的开放接口查询模板         # 正向与负向的行为示例
 ```
 
 `SKILL.md` 是唯一的事实来源，其余都是包装。
@@ -197,6 +204,13 @@ research-field-onboarding/
 - Agent 缺少联网、文件访问或交互能力时，优雅降级而不是失效。
 
 ## 更新记录
+
+### v1.5.0
+
+这一版没有新增任何行为。两项改动都是因为指令文件已经长到规则不再被可靠执行。
+
+- **`SKILL.md` 收缩为控制面。** 它已经涨到约 4000 词，而在更短的时候就已经观测到两条规则被跳过。未成熟领域处理、decode 模式、文献标注、篇幅路由、检查点机制、anti-patterns 全部移入 `references/`，用到时才加载。入口降到约 2700 词，没有删掉任何一条规则。
+- **新增 `references/evals.md`**：六条负例、十条正例、一对多语言检查，每条都有二元的通过判据。贡献流程现在要求在全新会话里跑相关用例并贴出结果。这套用例包含了实测中发现的那两次失败，它们不会再悄悄回来。
 
 ### v1.4.0
 
