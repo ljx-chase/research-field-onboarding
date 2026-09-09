@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.3.0-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.4.0-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -250,7 +250,8 @@ research-field-onboarding/
     ├── agents/
     │   └── openai.yaml
     └── references/
-        └── examples.md         # positive and negative behavioral examples
+        ├── examples.md         # positive and negative behavioral examples
+        └── search-recipes.md   # open-API query templates for verification
 ```
 
 `SKILL.md` is the single source of truth. Everything else is packaging.
@@ -272,6 +273,14 @@ research-field-onboarding/
   interactivity.
 
 ## Changelog
+
+### v1.4.0
+
+- **The skill now checks how settled a field is before teaching it**, and says which of three states applies: settled, emerging or contested, or not reliably known. The register the reader gets should tell them whether they are receiving consensus or a reconstruction.
+- **Grounded mode for unsettled fields.** Where no textbook exists, the standard "just be correct" is not available: central claims are attributed to specific work under the usual verification labels, unstable vocabulary is flagged with its competing usages, Rung 5 is built from groups rather than a canonical review, and the agent states how old its picture is. Citations stay out of settled-field teaching, where each citation slot is only a chance to fabricate.
+- **A stated refusal.** When the field is too new for a reliable picture and there is no way to search, the skill says so and hands over a query instead of teaching, rather than filling the gap with plausible structure.
+- **Target artifacts close the loop.** A reader who arrives saying "I want to read this paper" is told at the start which rungs stand between them and it, and at the end whether they can now read it and what is still likely to block them.
+- Added `references/search-recipes.md`: OpenAlex, Crossref, and arXiv query templates for checking whether a review exists, testing how current a picture is, and verifying that a specific paper exists. All open APIs, no key, runnable in a browser.
 
 ### v1.3.0
 

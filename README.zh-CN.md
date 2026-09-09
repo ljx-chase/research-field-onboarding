@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.3.0-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.4.0-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -178,7 +178,8 @@ research-field-onboarding/
     ├── agents/
     │   └── openai.yaml
     └── references/
-        └── examples.md         # 正向与负向的行为示例
+        ├── examples.md
+        └── search-recipes.md         # 正向与负向的行为示例
 ```
 
 `SKILL.md` 是唯一的事实来源，其余都是包装。
@@ -196,6 +197,14 @@ research-field-onboarding/
 - Agent 缺少联网、文件访问或交互能力时，优雅降级而不是失效。
 
 ## 更新记录
+
+### v1.4.0
+
+- **教之前先判定这个领域 settle 了没有**，并说明属于三种状态里的哪一种：已成熟、新兴或有争议、以及自己也说不清。读者有权知道拿到的是共识还是重构。
+- **未成熟领域走 grounded 模式。** 没有教科书的时候，"讲对"这个标准根本不可用：核心论断必须归到具体工作上并沿用既有的验证标注，不稳定的术语要标出竞争叫法，第 5 级从"哪几个组在做、分歧在哪"搭起来，并说明自己的信息截止到什么时候。成熟领域的讲解仍然不加逐句引用——那里每一个引用位都只是一次编造机会。
+- **明确的拒绝。** 领域太新、自己没有可靠图景、又没有检索能力时，说清楚做不到并交出检索式，而不是用听起来合理的结构把空白填上。
+- **目标物闭环。** 开场说"我想读懂这篇"的人，一开始就会被告知有哪几级挡在中间，结束时会被告知现在能不能读了、还有哪些地方可能卡住。
+- 新增 `references/search-recipes.md`：OpenAlex、Crossref、arXiv 的查询模板，用于确认有没有综述、检验自己的图景是否过期、以及核实某篇文献是否存在。全是开放接口，不需要 key，浏览器里就能跑。
 
 ### v1.3.0
 

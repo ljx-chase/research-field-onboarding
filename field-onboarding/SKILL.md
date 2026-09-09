@@ -94,10 +94,30 @@ plain table only when it does not. Printing marks the user has to type back when
 they could have tapped them is a cost you imposed for nothing, and it is the
 most common way this step gets half-done.
 
+**Second, check how settled the field is.** Do this before you teach, because
+it decides which mode you are in. Search if you can. If you cannot search, say
+so and reason from what you have, out loud.
+
+- **Settled.** Textbooks and review articles exist, the vocabulary is standard,
+  the core framework is not in dispute. Teach normally.
+- **Emerging or contested.** No textbook, terminology still shifting, or the
+  central claims are actively argued over. Switch to grounded mode below.
+- **You do not actually know.** You recognize the words but cannot say what the
+  field currently contains. Say that plainly and do not teach. See "When you
+  cannot onboard them" below.
+
+Say which of the three you are in, in one line, before Rung 1. The reader is
+entitled to know whether they are getting consensus or your reconstruction.
+
 Also establish, in the same turn:
 
 - **Target**: read one paper / follow a talk / start an experiment / judge
   whether a method fits their own work / pass an exam. This sets the depth.
+- **Target artifact**, when they name one. If they arrived with a specific
+  paper, abstract, talk, or apparatus, keep it. Say at the start which rungs
+  stand between them and it, point out along the way when a rung has just
+  unlocked part of it, and return to it at the end. A reader who came in saying
+  "I want to read X" should finish being told whether they can now read X.
 
 That is the whole intake. One turn, then start teaching.
 
@@ -130,6 +150,49 @@ If the user supplies a paper, abstract, paragraph, figure caption, or referee
 comment and mainly wants to understand that passage, use **Decode mode** below
 instead of forcing the intake. Derive the prerequisites from the passage itself
 and ask about depth only if the depth they want is ambiguous.
+
+## When the field is not settled
+
+In an emerging or contested field there is no consensus to teach from, so the
+usual standard, be correct, is not available. Use these instead.
+
+- **Say it up front.** One line: no textbook exists, the vocabulary is not
+  standardized, this is what the last few years of papers look like.
+- **Ground the substantive claims.** In a settled field, citing a source for a
+  textbook fact is noise. Here it is the only thing separating teaching from
+  invention. Attribute the central claims of Rungs 3 to 5 to specific work,
+  under the same verified / unverified labels as everywhere else, and mark
+  anything that is your own synthesis as your synthesis.
+- **Flag unstable vocabulary.** Different groups routinely name the same object
+  differently before a field settles. Say when a term has competitors, and
+  which paper uses which. A reader who learns one group's word and then reads
+  another group's paper will think they have found a new concept.
+- **Invert Rung 5.** There is no review to orient with. Give the two or three
+  groups pushing the area, what each is claiming, and where they disagree.
+- **State your horizon.** Your picture of a fast-moving field ages badly. Say
+  when it is from, and say plainly that the last year may be missing.
+
+Treat prerequisites the same way: in an emerging field your prerequisite list is
+inferred from adjacent settled fields, not read off a curriculum. Present it as
+provisional and say so.
+
+## When you cannot onboard them
+
+Sometimes the honest answer is that you cannot do this reliably. That is the
+case when the field is too new or too narrow for you to have a real picture and
+you have no way to search.
+
+Do not fill the gap with plausible-sounding structure. Say what you can and
+cannot do, then hand over a way to find the ground truth themselves:
+
+- the search that would surface a review, written out so they can run it;
+- the two or three venues or groups the work would appear in, if you know them;
+- what to read the review for, which is the prerequisite list you could not
+  give them.
+
+See [references/search-recipes.md](references/search-recipes.md) for query
+templates. Sending someone to a real review beats onboarding them into a field
+you have reconstructed.
 
 ## The ladder
 
@@ -192,6 +255,9 @@ make it dense and scannable. It is a reference card, not a lecture.
 
 Include the field's abbreviations and any term that means something different
 here than in the user's home field. Those false friends cause the most damage.
+
+In an emerging field, mark which terms are not yet standard and name the
+competing usages.
 
 ### Rung 3 — The core framework
 
@@ -262,7 +328,9 @@ takeaway they can keep:
 - the running glossary;
 - the reading path, with each item's verification label intact;
 - the two or three questions the field itself has not settled;
-- which prerequisites they marked *new* and still have not covered.
+- which prerequisites they marked *new* and still have not covered;
+- if they arrived with a target artifact, whether they can now read it, and
+  what is still likely to block them in it.
 
 Keep it short enough to paste into their own notes. This is the only part of
 the session that survives it.
@@ -338,6 +406,16 @@ consult [references/examples.md](references/examples.md) when an example would
 help resolve how to apply these rules. Treat the examples as patterns, not
 scripts.
 
+## Verifying and searching
+
+When you have a search tool, use it: to check how settled a field is, to verify
+every named work, and to test your own picture against what was published
+recently. When you do not, hand the reader the query instead of a guess.
+
+[references/search-recipes.md](references/search-recipes.md) has the query
+templates for both cases. They use open APIs that need no key, so a reader can
+run any of them in a browser.
+
 ## Running glossary
 
 Maintain a cumulative glossary across the session. When you introduce a term,
@@ -371,6 +449,12 @@ the session gets long.
 - Widening a marked anchor to cover an adjacent skill the user never claimed.
 - Giving a hands-on learner the full origin story of the field at length when
   they asked how to build the thing.
+- Teaching an unsettled field in the confident register of a settled one, so
+  the reader cannot tell consensus from your reconstruction.
+- Attaching a citation to every textbook sentence. Each citation slot is a
+  chance to fabricate, so citations belong where they carry weight: the reading
+  path, and the contested claims of an unsettled field.
+- Taking a target artifact at the start and never returning to it.
 - Writing an equation without saying which convention it is in, so the user
   cannot match it against the paper in front of them.
 - Deferring to a textbook instead of explaining. Recommend reading *after*
