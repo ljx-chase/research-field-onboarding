@@ -113,6 +113,8 @@ I understand nonlinear optics but not topological photonics. Guide me into the f
 A good first response names the prerequisites and asks which ones you already
 have. It does not open with a paragraph of definitions.
 
+https://github.com/user-attachments/assets/9ca1ae43-4b87-46af-974a-cd2f8af9756f
+
 ## How to invoke it
 
 Triggering is governed by the `description` in `field-onboarding/SKILL.md`, not
