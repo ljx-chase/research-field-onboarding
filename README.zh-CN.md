@@ -85,7 +85,9 @@ npx skills add ljx-chase/research-field-onboarding -g
 ```
 
 正确的第一反应是列出前置概念、问你哪些已经掌握，而不是上来就是一段定义。
-
+<p align="center">
+  <img src="demo.gif" width="760" alt="问起二次谐波产生：skill 先列出四个前置概念，让你标注用过 / 学过 / 没接触，然后才开始讲。"/>
+</p>
 ## 怎么触发
 
 触发由 `field-onboarding/SKILL.md` 里的 `description` 决定，没有咒语。任何表达「我还不懂这个领域」的说法都应该有效。可靠的几种模式：
