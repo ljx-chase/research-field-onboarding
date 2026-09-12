@@ -113,7 +113,9 @@ I understand nonlinear optics but not topological photonics. Guide me into the f
 A good first response names the prerequisites and asks which ones you already
 have. It does not open with a paragraph of definitions.
 
-https://github.com/user-attachments/assets/9ca1ae43-4b87-46af-974a-cd2f8af9756f
+<p align="center">
+  <img src="docs/demo.gif" width="760" alt="Asking about second harmonic generation: the skill lists four prerequisites and asks which ones you have used before it starts teaching."/>
+</p>
 
 ## How to invoke it
 
