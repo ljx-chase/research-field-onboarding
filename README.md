@@ -114,7 +114,7 @@ A good first response names the prerequisites and asks which ones you already
 have. It does not open with a paragraph of definitions.
 
 <p align="center">
-  <img src="docs/demo.gif" width="760" alt="Asking about second harmonic generation: the skill lists four prerequisites and asks which ones you have used before it starts teaching."/>
+  <img src="demo.gif" width="760" alt="Asking about second harmonic generation: the skill lists four prerequisites and asks which ones you have used before it starts teaching."/>
 </p>
 
 ## How to invoke it
