@@ -372,6 +372,19 @@ Contributions are welcome, particularly behavioral examples from disciplines
 other than the physical sciences, and negative cases where the skill fires when
 it should not. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Feedback
+
+If you try this and it gets something wrong, please
+[open an issue](https://github.com/ljx-chase/research-field-onboarding/issues).
+Every entry in the changelog above came from someone using it and telling me
+where it broke, and that is worth more to me than a star. Prerequisites that
+were wrong for your field, a checkpoint question you couldn't answer from the
+rung, a citation that turned out not to exist: all of it is useful, and the
+eval set exists so a fix doesn't quietly break something else.
+
+If it was useful, a star helps other people find it. Watching the repo will tell
+you when the rules change, which a star won't.
+
 ## Citation
 
 If this skill helps your reading or your teaching, you can cite the repository:
