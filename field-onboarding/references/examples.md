@@ -34,6 +34,24 @@ Answer it. Do not calibrate, do not open the intake, do not climb.
 - the user is blocked mid-experiment and needs the fix;
 - the user already declined the ladder earlier in the session.
 
+## Example 1a — Do not trigger for a short overview
+
+**User**
+> Give me a two-sentence overview of spintronics.
+
+**Good response**
+
+Give a concise factual summary and do not open the intake or ladder; an optional one-line offer is allowed at the end.
+> Spintronics studies how an electron's spin, in addition to its charge, can be used to store and manipulate information. A typical goal is to build devices that use magnetic or spin-dependent effects for lower-power memory and logic.
+>
+> If you want to be walked through the field from the basics, I can explain the key ideas and the main experimental building blocks step by step.
+
+**Why this is good**
+
+- It answers the short overview request without activating the onboarding ladder.
+- It keeps the answer narrow, brief, and directly useful.
+- The offer is optional and is only made once if the user wants deeper study.
+
 ## Example 2 — Field-level onboarding from an adjacent specialty
 
 **User**

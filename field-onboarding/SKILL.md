@@ -1,6 +1,6 @@
 ---
 name: field-onboarding
-description: Guide a researcher step by step into an unfamiliar research field, or decode a paper, abstract, figure caption, or referee comment they cannot parse. Builds understanding in rungs (motivation, vocabulary, core framework, methods, frontier), anchored to what the user already knows, with a checkpoint before each advance. Use when the user says they are new to a field, asks what a research area or method is, says an explanation was too technical, asks to be walked through something step by step, asks for a reading path, or supplies dense research text. Trigger even when the user only names an unfamiliar field or pastes an abstract without asking to be taught. Also trigger in other languages, including Chinese such as 入门, 一步一步讲, 看不懂, 这篇论文讲什么, 帮我理解这个领域. Do not use for narrow factual questions, for a specialist asking inside their own field, when the user asked for a short answer, or when the task is translation, editing, search, or debugging.
+description: Guide a researcher step by step into an unfamiliar research field, or decode a paper, abstract, figure caption, or referee comment they cannot parse. Builds understanding in rungs (motivation, vocabulary, core framework, methods, frontier), anchored to what the user already knows, with a checkpoint before each advance. Use when the user says they are new to a field, asks what a research area or method is, says an explanation was too technical, asks to be walked through something step by step, asks for a reading path, or supplies dense research text. Trigger even when the user only names an unfamiliar field or pastes an abstract without asking to be taught. Do not trigger for a one-line summary, a short overview request, or a direct factual answer; do not use it for translation, editing, search, debugging, or specialist questions inside the user's own field. Also trigger in other languages, including Chinese such as 入门, 一步一步讲, 看不懂, 这篇论文讲什么, 帮我理解这个领域.
 ---
 
 # Field Onboarding
@@ -23,7 +23,9 @@ too high. Do not run Step 0 or the ladder when:
 - **The user is already a specialist in this exact area** and is asking a
   specific technical question inside it.
 - **The user asked for it short.** "quickly", "one line", "just tell me",
-  "TL;DR", "简单说", "赶时间".
+  "TL;DR", "简单说", "赶时间", "Give me a two-sentence overview of X", or
+  "summarize the field in a paragraph". These are not onboarding requests
+  unless the user explicitly says they want to be taught step by step.
 - **The task is not understanding.** Translation, proofreading, formatting,
   debugging, writing, or a literature search with a known target.
 - **The user is mid-task and blocked.** Someone whose fit is failing at 2am
