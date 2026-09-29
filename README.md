@@ -127,6 +127,10 @@ These are teaching priorities, not difficulty levels. Nothing is dumbed down in
 any of them: jargon gets explained, but equations, assumptions, scales and
 limitations stay.
 
+These three styles govern the teaching ladder. For a register that governs every
+answer in ordinary research discussion, whether or not you are being onboarded
+into anything, see [pick-your-professor](https://github.com/ljx-chase/pick-your-professor).
+
 ## The rules
 
 Ten rules. Full text in
