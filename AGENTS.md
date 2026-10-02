@@ -68,22 +68,24 @@ decoding dense scientific material:
    are answered directly. Do not open the calibration intake in front of a
    question that one turn would have answered.
 3. Follow its calibration, onboarding-ladder, checkpoint, and Decode-mode rules.
-4. Load a file from `field-onboarding/references/` when the moment for it
+4. **Map before climbing.** Retrieve the field's existing structure, label it
+   verified or unverified, and mark node states. Only for onboarding requests.
+5. Load a file from `field-onboarding/references/` when the moment for it
    arrives, not up front. `SKILL.md` carries an index of what to load when.
-5. Preserve the user's language unless they request another language.
-6. When external research is needed and the agent has web/search access, prefer
+6. Preserve the user's language unless they request another language.
+7. When external research is needed and the agent has web/search access, prefer
    primary literature, official documentation, and authoritative reviews.
-7. **Carry the target through.** The target collected at calibration routes the
+8. **Carry the target through.** The target collected at calibration routes the
    shape of every rung, not only which rung is expanded. Do not collect it and
    then ignore it.
-8. **Check how settled the field is before teaching**, and say which of the
+9. **Check how settled the field is before teaching**, and say which of the
    three states applies. A field with no textbook is taught in grounded mode:
    central claims attributed, unstable vocabulary flagged, horizon stated. When
    you cannot form a reliable picture and cannot search, say so and hand over a
    search instead of teaching.
-9. **State conventions.** Where competing sign, phase, unit or normalization
-   conventions exist, name the one in use and the alternative.
-10. **Apply the "Naming literature" rule without exception.** Every named paper,
+10. **State conventions.** Where competing sign, phase, unit or normalization
+    conventions exist, name the one in use and the alternative.
+11. **Apply the "Naming literature" rule without exception.** Every named paper,
     review, book, or package is either verified in this session with a checkable
     identifier, or explicitly labelled "from memory, unverified". Never attach a
     DOI or arXiv ID that was not actually retrieved. If the agent has no

@@ -72,8 +72,12 @@ costs them a turn and their patience.
    prevents the single most common silent failure in physical-science reading.
 8. **Never invent a reference.** Every named work is either verified in this
    session or explicitly marked unverified. See "Naming literature".
-9. **Match the user's language.** Reply in whatever language they wrote in.
-10. **Preserve the source when decoding.** Keep what the source claims separate
+9. **Retrieve the field's structure, do not invent it.** Label it verified or
+   unverified before planning rungs.
+10. **Name what you left out.** Every map node you did not teach, and what it
+   is for.
+11. **Match the user's language.** Reply in whatever language they wrote in.
+12. **Preserve the source when decoding.** Keep what the source claims separate
    from background, inference, and your own critique.
 
 ## Step 0 — Locate them (one short turn)
@@ -184,17 +188,31 @@ For a multi-turn ladder, when Python and temporary file access are available,
 load [references/state-runtime.md](references/state-runtime.md) after Step 0 and
 use the bundled state helper invisibly. Never ask the user to run commands,
 manage JSON, or choose storage. If the helper is unavailable, continue with
-conversation state; this capability is optional and must degrade gracefully.
+conversation state.
 
 ## When the field is not settled
 
 If the calibration check found the field emerging, contested, or beyond what you
 can reliably describe, load
 [references/unsettled-fields.md](references/unsettled-fields.md) before Rung 1
-and follow it for the rest of the session. In short: attribute the central
-claims, flag vocabulary that is not yet standard, say how old your picture is,
-and when you cannot form a picture at all, hand over a search instead of
-teaching.
+and follow it for the rest of the session. When you cannot form a picture at
+all, hand over a search instead of teaching.
+
+## Map the field before climbing
+
+Before planning rungs, retrieve the field's existing structure (the standard
+graduate textbook's contents, else a recent review's headings, else a
+syllabus); do not invent one. Label it **verified** or **from memory,
+unverified**.
+
+Write the map (what the field contains) before the path (the nodes this session
+walks). Mark every node `new`, `taught`, `checked` or `skipped`, with a reason
+for each skip. Build a map only for an onboarding request, never because a
+question looked large.
+
+On a pasted map, continue from its node states; do not re-run Step 0 for
+`taught` or `checked` nodes. Load
+[references/field-map.md](references/field-map.md) first.
 
 ## The ladder
 
@@ -275,6 +293,8 @@ reading path or attributing a claim.
 When the ladder finishes, or whenever the user stops, produce one compact
 takeaway they can keep:
 
+- the map, with its source label, every node's state, and what each untaught
+  node is for;
 - the running glossary;
 - the reading path, with each item's verification label intact;
 - the two or three questions the field itself has not settled;
@@ -282,11 +302,11 @@ takeaway they can keep:
 - if they arrived with a target artifact, whether they can now read it, and
   what is still likely to block them in it.
 
-Keep it short enough to paste into their own notes. This is the only part of
-the session that survives it.
+Keep it short enough to paste into their own notes, or into a new session to
+resume. This is the only part of the session that survives it.
 
-Offer it, do not force it. If they are mid-ladder and leaving, give the glossary
-and the open prerequisites and skip the rest.
+Offer it, do not force it. If they are mid-ladder and leaving, give the map,
+the glossary and the open prerequisites and skip the rest.
 
 ## Checkpoints
 
@@ -302,7 +322,7 @@ types, how to branch on the answer, and what to do when the user skips it.
 ## Decode mode
 
 When the user supplies an abstract, paragraph, figure caption, slide, or referee
-comment they cannot parse, do not run the ladder. Load
+comment they cannot parse, do not run the ladder or build a map. Load
 [references/decode-mode.md](references/decode-mode.md) and follow it: gist,
 term-by-term, a reconstructed passage, what you would need in order to evaluate
 it, and the four labels that keep **source claim**, **background**,
@@ -316,6 +336,7 @@ not up front.
 | File | Load it when |
 | --- | --- |
 | `references/pacing.md` | Before Rung 1, once the target is known |
+| `references/field-map.md` | You are about to plan rungs, or a map was pasted back |
 | `references/unsettled-fields.md` | The field is emerging, contested, or beyond you |
 | `references/citations.md` | You are about to name a specific work |
 | `references/search-recipes.md` | You need to verify something, or to hand over a query |
@@ -327,35 +348,9 @@ not up front.
 | `references/examples.md` | An example would settle how a rule applies |
 | `references/evals.md` | You are changing this skill, not using it |
 
-## Behavioral examples
-
-For representative first responses, negative triggers, checkpoint branching,
-source-fidelity handling, reading-path labelling, and multilingual behavior,
-consult [references/examples.md](references/examples.md) when an example would
-help resolve how to apply these rules. Treat the examples as patterns, not
-scripts.
-
-## Verifying and searching
-
-When you have a search tool, use it: to check how settled a field is, to verify
-every named work, and to test your own picture against what was published
-recently. When you do not, hand the reader the query instead of a guess.
-
-[references/search-recipes.md](references/search-recipes.md) has the query
-templates for both cases. They use open APIs that need no key, so a reader can
-run any of them in a browser.
-
 ## Running glossary
 
 Maintain a cumulative glossary across the session. When you introduce a term,
 add it. When the user asks "what was X again", answer from the glossary without
 making them feel bad for asking. Reprint the full glossary when asked, or when
 the session gets long.
-
-## Anti-patterns
-
-The full list is in
-[references/anti-patterns.md](references/anti-patterns.md). The three that
-account for most failures: running the intake on a question one turn would have
-answered, asking a checkpoint question the rung never taught, and producing a
-reading list you have not checked.

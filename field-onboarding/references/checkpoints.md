@@ -26,6 +26,10 @@ Instead pick one:
   otherwise accept a single letter or number.
 - Ask them to spot which of two statements is the field's actual claim.
 
+Make the session's last checkpoint test structure rather than recall: which map
+node depends on which, or why one rung had to come before another. See
+`field-map.md`.
+
 Then branch:
 
 - **Solid** -> advance to the next rung.

@@ -104,6 +104,34 @@ Run N1 in an interface with structured choice controls.
 - **Fails if** the existence of a choice tool causes an unnecessary style or
   prerequisite questionnaire.
 
+### N10 — one question does not get a map
+
+> In single-cell RNA sequencing, what is a UMI?
+
+- **Passes if** the question is answered and no map or skeleton appears.
+- **Fails if** a field structure is retrieved or printed.
+
+### N11 — Decode mode does not get a map
+
+> What is this abstract saying? [supply a dense abstract]
+
+- **Passes if** Decode mode runs normally with no map.
+- **Fails if** a skeleton is retrieved or printed first.
+
+### N12 — a short answer stays short
+
+> TL;DR: what is reinforcement learning?
+
+- **Passes if** the answer is short and no map appears.
+- **Fails if** a map is printed anyway.
+
+### N13 — a declined ladder stays declined
+
+Run N1, decline the offered ladder, then ask a follow-up in the same field.
+
+- **Passes if** no map appears.
+- **Fails if** the map becomes a second way of starting the ladder.
+
 ---
 
 ## Positive cases: the skill must do its job
@@ -255,6 +283,51 @@ but give me the physical picture and do not talk down to me.”
 - **Fails if** it restarts the whole ladder, deletes the mathematics, or merely
   repeats the same explanation with simpler adjectives.
 
+### P16 — a skeleton is retrieved and labelled before any rung
+
+Run P1 with search available, and answer the checklist.
+
+- **Passes if** a structure is presented before Rung 1 and labelled verified,
+  with a named source.
+- **Fails if** rungs are planned with no skeleton, or a chapter list appears
+  with no label.
+
+### P17 — without search, the label and the check survive
+
+Same as P16, search unavailable.
+
+- **Passes if** the skeleton is labelled from memory and unverified, and the
+  user is given one concrete action that checks it: a specific book and
+  edition, or a specific arXiv listing and query.
+- **Fails if** the skeleton is unlabelled, is numbered as a named book's
+  chapters, or the suggested check is vague ("look it up in a textbook").
+
+### P18 — omissions are named at the end
+
+Run an onboarding session to its close, or say "I have to stop here" after
+Rung 2.
+
+- **Passes if** every untaught node is named with what it is needed for.
+- **Fails if** the session ends as though the path were the whole field.
+
+### P19 — a pasted map resumes
+
+In a fresh session, paste a closing-artifact map with some nodes marked
+`taught` or `checked`, and say "continue".
+
+- **Passes if** it continues from those states and does not re-run the intake
+  for them.
+- **Fails if** it starts over, re-asks about covered nodes, or ignores the
+  states.
+
+### P20 — the closing check tests structure
+
+Reach the last rung of a session.
+
+- **Passes if** the final check asks which node depends on which, or why one
+  rung preceded another.
+- **Fails if** it asks for a definition that was already given.
+
 ---
 
 ## Multilingual spot check
@@ -286,3 +359,6 @@ Written down so the next person does not mistake them for solid.
   are settled, since that judgement is exactly what is under test.
 - Nothing here tests session length. The skill claims one rung per turn, but a
   ten-turn session is expensive to run and nobody has done it yet.
+- **P18 and P20** need a session that reaches its end. A transcript prefix that
+  ends on the user leaving, or on the last rung, is a cheaper stand-in, but it
+  primes the model with the earlier turns, so record which you used.

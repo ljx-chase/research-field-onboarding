@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.7.0-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.8.0-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -18,9 +18,10 @@
 > one rung per turn in whichever explanation style you pick, and never names a
 > paper it hasn't checked.
 
-🆕 **New in v1.7.0** — you can now pick how it explains. Physical picture first,
-balanced, or derivation first. Same depth in all three, different order, and you
-can switch mid-session. [Jump to the three styles](#pick-how-it-explains).
+🆕 **New in v1.8.0** — it maps the field before teaching it. The structure comes
+from a textbook, a review or a syllabus instead of being made up on the spot,
+every part is marked taught, checked or skipped, and the closing takeaway can be
+pasted into a new session to carry on. [Jump to map and path](#map-before-path).
 
 If it helps you, a ⭐ makes it easier for other people to find. Watch the repo
 if you want to hear when the rules change; the changelog has moved most weeks,
@@ -133,7 +134,7 @@ into anything, see [pick-your-professor](https://github.com/ljx-chase/pick-your-
 
 ## The rules
 
-Ten rules. Full text in
+Twelve rules. Full text in
 [SKILL.md](field-onboarding/SKILL.md).
 
 1. Name the prerequisites yourself, don't ask "what's your background".
@@ -146,6 +147,8 @@ Ten rules. Full text in
 8. Verified with a DOI, or labelled "from memory, unverified". No third option.
 9. Say whether the field is settled before teaching it as if it were.
 10. Answer short questions short. Offer the ladder once, then drop it.
+11. Take the field's structure from a textbook, review or syllabus; don't invent it.
+12. Name what was left out, and what each skipped part is for.
 
 ## What it does differently
 
@@ -227,6 +230,7 @@ Chinese works the same: `一步一步带我入门<领域>`、`这篇摘要看不
 | [What it does differently](#what-it-does-differently) | The rules, and why each one exists. |
 | [Scope](#scope-when-it-fires-and-when-it-does-not) | When it should stay out of the way, and the one-turn test. |
 | [The ladder](#the-ladder) | The five rungs, and how your stated target reshapes them. |
+| [Map before path](#map-before-path) | Where the structure comes from, what gets marked, and how to resume. |
 | [Reference discipline](#reference-discipline) | Why it will not hand you a citation it has not checked. |
 | [Example prompts](#example-prompts) | Copy-paste starting points, including one it should decline. |
 | [Changelog](#changelog) | What changed, and which live session forced each change. |
@@ -264,12 +268,24 @@ Your **target** routes the whole ladder, not just its length. Reading a paper
 weights notation and formalism; judging whether a method fits your work leads
 with phenomena and worked numbers and expands Rung 4; doing it hands-on turns
 Rung 4 into a procedure. At the end the agent produces a takeaway you keep: the
-glossary, the reading path, the field's open questions, and the prerequisites you
-still have not covered.
+map with each part's state, the glossary, the reading path, the field's open
+questions, and the prerequisites you still have not covered.
 
 For supplied text it switches to **Decode mode** instead, separating **source
 claim**, **background**, **inference**, and **critique** so you can see which is
 which.
+
+## Map before path
+
+Before Rung 1 the agent retrieves the field's existing structure (a standard
+textbook's contents, a recent review's headings, or a syllabus) and labels it
+verified or from memory, unverified, instead of inventing a curriculum. The
+**map** is what the field contains; the **path** is the few parts your session
+walks, chosen by your target, and every part is marked `new`, `taught`,
+`checked` or `skipped`. At the end it names what was not taught and what each
+of those parts is for, and the closing takeaway carries the map, so you can
+paste it into a new session to continue. That is manual: you save the takeaway
+and paste it back; the skill remembers nothing between sessions on its own.
 
 ## Reference discipline
 
@@ -330,6 +346,7 @@ research-field-onboarding/
         ├── examples.md         # positive and negative behavioral examples
         ├── evals.md            # regression set, run before merging a change
         ├── pacing.md           # per-target word budgets and routing
+        ├── field-map.md        # map vs path, node states, resuming
         ├── unsettled-fields.md # grounded mode, and when to refuse
         ├── citations.md        # the verified / unverified rule
         ├── checkpoints.md      # question types and branching
@@ -358,6 +375,16 @@ research-field-onboarding/
   interactivity.
 
 ## Changelog
+
+### v1.8.0
+
+- **It maps the field before teaching it.** The ladder gave a good arc inside one session, but the rungs were planned on the spot: reasonable, different every time, and with no way for the reader to see what had been left out. Each session also started from zero, so several sessions left disconnected fragments. Before Rung 1 the agent now retrieves the field's existing structure (a standard textbook's contents, else a recent review's headings, else a syllabus) and labels it verified or from memory, unverified. Without search it says so and hands over one concrete check, and it never numbers a from-memory outline as a book's chapters.
+- **Map and path are separate.** The map is what the field contains; the path is the few nodes this session walks, chosen by the target. Every node is `new`, `taught`, `checked` or `skipped` with a reason. The map is printed once, compactly: the path in full, the skipped nodes as a single line of names.
+- **What was not taught gets named.** A session ends by listing the untaught nodes and what each one is needed for, and the last checkpoint asks which node depends on which instead of asking for a definition already given.
+- **Sessions can be resumed by hand.** The closing artifact now leads with the map and its node states. Pasted into a new session, it continues from those states without re-running the intake. This is manual; the skill keeps nothing between sessions on its own.
+- **The state helper stores the map.** `knowledge_state.py` (schema 0.3.0) adds map nodes, a labelled map source, a `skipped` state that carries its reason, and a `mark` command. `mark` also records a rung that was taught without a checkpoint, which previously fell back into the queue as soon as the next concept was activated. `summary` reports every node's state, and the tests cover each transition.
+- **`SKILL.md` stays under 3,000 words.** It gained the map section and two rules, now twelve. To make room, three sections that only repeated their reference files (Behavioral examples, Verifying and searching, and the anti-pattern summary) and the grounded-mode summary under "When the field is not settled" were removed. The index table still points at every file, and no rule was dropped.
+- **Nine new eval cases**, five positive (P16–P20) and four negative (N10–N13). The negatives are there because a map is easy to over-apply: it is built for an onboarding request, never because a question looked large.
 
 ### v1.7.0
 
