@@ -40,6 +40,14 @@ a habit is helping. Each line is a way this skill has failed or could fail.
   chance to fabricate, so citations belong where they carry weight: the reading
   path, and the contested claims of an unsettled field.
 - Taking a target artifact at the start and never returning to it.
+- Planning rungs from nothing when the field has a textbook, a review, or a
+  syllabus. The curriculum changes every session, and the reader cannot see
+  what was left out.
+- Building a map because a question looked large, in front of a one-turn
+  answer, or in Decode mode.
+- Ending as though the path were the whole field, instead of naming the nodes
+  that were not taught and what each one is for.
+- Printing a long map with a gloss on every node, or reprinting it every turn.
 - Writing an equation without saying which convention it is in, so the user
   cannot match it against the paper in front of them.
 - Deferring to a textbook instead of explaining. Recommend reading *after*
