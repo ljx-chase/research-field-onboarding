@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.8.0-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.8.1-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -16,9 +16,10 @@
 > **问一个你不懂的领域，AI 会按懂的人的水平回答你。** 这个 skill 让它先问你已经会
 > 什么，按你选的讲解风格一次只讲一级，并且绝不说出一篇它没核实过的文献。
 
-🆕 **v1.8.0 新增** — 它会先给领域画地图，再开始讲。结构取自教科书目录、综述的
-章节标题或课程大纲，而不是临场现编；每个部分都标成讲过、检验过或跳过；结束时的
-总结可以贴进新会话接着学。[跳到先地图后路径](#先地图后路径)。
+🆕 **v1.8 新增** — 它可以先给领域画一张地图再开始讲。在开场的几个问题里选上地图，
+就能看到这个领域的结构：取自教科书目录、综述的章节标题或课程大纲，而不是临场现编，
+每个部分都标成讲过、检验过或跳过。不选也没关系，课程仍然按这个结构来规划。
+[跳到先地图后路径](#先地图后路径)。
 
 觉得有用的话，点个 ⭐ 能让更多人找到它。想知道规则什么时候变了就 Watch 一下：
 更新记录基本每周都在动，大多是我自己拿它读东西的时候发现哪里不对，改的。
@@ -89,6 +90,8 @@ npx skills add ljx-chase/research-field-onboarding -g
 > `用过` / `学过` / `没接触`
 >
 > 讲解方式：**1 物理图像优先（默认）/ 2 图像与推导并重 / 3 严格推导优先**。如果没有出现按钮，回复数字即可。
+>
+> 另外可选：要不要先看一张领域地图？回复「地图」即可，不回复就跳过。
 
 *十二个术语，它只问了其中四个，而不是把十二个一次性全甩给你。然后从你实际所在的位置开始，一次只往上讲一级。*
 
@@ -182,7 +185,7 @@ npx skills add ljx-chase/research-field-onboarding -g
 
 ## 先地图后路径
 
-第 1 级之前，agent 会先取来这个领域现成的结构（标准教科书的目录、近期综述的章节标题或课程大纲），并标注「已验证」或「凭记忆，未核实」，而不是现编一套课程。**地图**是这个领域包含什么，**路径**是这次会话按你的目标实际走的那几个部分，每个部分都标成 `new`、`taught`、`checked` 或 `skipped`。结束时它会说出哪些部分没讲、各自是干什么用的，收尾产物里带着这张地图，贴进新会话就能接着学。这一步是手动的：你自己保存、自己贴回去，skill 不会在会话之间替你记住任何东西。
+第 1 级之前，agent 会先取来这个领域现成的结构（标准教科书的目录、近期综述的章节标题或课程大纲），并标注「已验证」或「凭记忆，未核实」，而不是现编一套课程。**地图**是这个领域包含什么，**路径**是这次会话按你的目标实际走的那几个部分，每个部分都标成 `new`、`taught`、`checked` 或 `skipped`。看不看地图是开场问题里的一个选项，不选就不显示；但无论看不看，课程都按它来规划，结束时也都会说出哪些部分没讲、各自是干什么用的。收尾产物里带着这张地图，贴进新会话就能接着学。这一步是手动的：你自己保存、自己贴回去，skill 不会在会话之间替你记住任何东西。
 
 ## 文献纪律
 
@@ -260,6 +263,13 @@ research-field-onboarding/
 - Agent 缺少联网、文件访问或交互能力时，优雅降级而不是失效。
 
 ## 更新记录
+
+### v1.8.1
+
+- **地图改为可选，默认不显示。** 不问就把地图印在第一轮讲解的开头，会让那一轮很长，而且不是每个读者都想在第 1 级之前先看完整个领域的布局。现在开场问题里会在讲解风格旁边多给一个选项，不选就没有地图。结构照样会取来、路径照样按它规划，没讲到的部分照样在结束时点名，收尾产物里也照样带着地图供续学。
+- **结构型的收尾检验写进了 `SKILL.md`。** 评测 P20 里最后一道检验题问的是概念题，而不是哪个节点依赖哪个。原因是这条规则只写在 `field-map.md` 和 `checkpoints.md` 里，而会话后段不会重新加载它们。现在 `SKILL.md` 直接写明，收尾时也会重新加载 `field-map.md`。
+- 为了保持在 3000 词以内，`SKILL.md` 的 Decode 模式一节改为指向 `decode-mode.md` 里的步骤，不再重复列出。
+- 新增 P21（地图是提供的选项，而不是强加）和 P22（没选的地图不显示）两条评测用例。
 
 ### v1.8.0
 

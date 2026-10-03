@@ -149,6 +149,8 @@ Also establish, in the same turn:
   stand between them and it, point out along the way when a rung has just
   unlocked part of it, and return to it at the end. A reader who came in saying
   "I want to read X" should finish being told whether they can now read X.
+- **Map**: offer the field map as one more choice beside the style. Show it
+  only if they choose it.
 
 That is the whole intake. One turn, then start teaching.
 
@@ -203,12 +205,12 @@ all, hand over a search instead of teaching.
 Before planning rungs, retrieve the field's existing structure (the standard
 graduate textbook's contents, else a recent review's headings, else a
 syllabus); do not invent one. Label it **verified** or **from memory,
-unverified**.
-
-Write the map (what the field contains) before the path (the nodes this session
-walks). Mark every node `new`, `taught`, `checked` or `skipped`, with a reason
-for each skip. Build a map only for an onboarding request, never because a
+unverified**. Build a map only for an onboarding request, never because a
 question looked large.
+
+Plan the path (the nodes this session walks) from the map (what the field
+contains), even when the map is not shown, and mark every node `new`, `taught`,
+`checked` or `skipped`, with a reason for each skip.
 
 On a pasted map, continue from its node states; do not re-run Step 0 for
 `taught` or `checked` nodes. Load
@@ -322,12 +324,10 @@ types, how to branch on the answer, and what to do when the user skips it.
 
 ## Decode mode
 
-When the user supplies an abstract, paragraph, figure caption, slide, or referee
-comment they cannot parse, do not run the ladder or build a map. Load
-[references/decode-mode.md](references/decode-mode.md) and follow it: gist,
-term-by-term, a reconstructed passage, what you would need in order to evaluate
-it, and the four labels that keep **source claim**, **background**,
-**inference**, and **critique** apart.
+When the user supplies text they cannot parse (see "Paper-first exception"), do
+not run the ladder or build a map. Load
+[references/decode-mode.md](references/decode-mode.md) and follow it, keeping
+**source claim**, **background**, **inference**, and **critique** apart.
 
 ## References
 

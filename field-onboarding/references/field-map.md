@@ -1,7 +1,7 @@
 # Field map
 
-Loaded after Step 0 of an onboarding ladder, and when the user pastes a map
-back. Never build a map for a one-turn answer, in Decode mode, after a declined
+Loaded after Step 0 of an onboarding ladder, at the close, and when the user
+pastes a map back. Never build a map for a one-turn answer, in Decode mode, after a declined
 ladder, or because a question looked large.
 
 ## Map and path
@@ -43,11 +43,15 @@ clause when they share a reason; a node the user already has is skipped as
 
 ## Showing it
 
-Show the map once, at the top of the first teaching turn, and start Rung 1 in
-the same turn; do not wait for approval. Print the path one line per node with
-a one-clause gloss, and the skipped nodes on a single line: a count, then names
-only, grouped by reason. Never reprint the map; after a rung, print only the
-nodes whose state changed.
+Offer the map in Step 0 as one more choice beside the style. If the user does
+not choose it, do not show it, but still plan from it, track node states, and
+name the untaught nodes at the end.
+
+When chosen, show it once, at the top of the first teaching turn, and start
+Rung 1 in the same turn; do not wait for approval. Print the path one line per
+node with a one-clause gloss, and the skipped nodes on a single line: a count,
+then names only, grouped by reason. Never reprint the map; after a rung, print
+only the nodes whose state changed.
 
 ## Closing check and omissions
 
@@ -72,21 +76,8 @@ into that rung's opening.
 
 ## Example
 
-Single-cell RNA sequencing, for one paper on a new cell type. First teaching
-turn:
-
-> **Map** from [review], section headings. Verified, [DOI]. Your path:
->
-> 1. count matrix: how reads become genes counted per cell
-> 2. quality control: dropping empty, merged and dying cells
-> 3. normalization: correcting for sequencing depth
-> 4. dimensionality reduction: many genes down to a few axes
-> 5. clustering and annotation: grouping cells, naming groups by marker genes
->
-> Skipped (2), not used in your paper: differential expression · trajectory
-> inference
-
-Closing artifact, after the user stopped mid-ladder:
+Single-cell RNA sequencing, for one paper on a new cell type. The closing
+artifact, after the user stopped mid-ladder:
 
 ```text
 Field map: single-cell RNA sequencing. [review] headings, verified, [DOI]
