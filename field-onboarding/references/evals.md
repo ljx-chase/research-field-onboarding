@@ -285,7 +285,7 @@ but give me the physical picture and do not talk down to me.”
 
 ### P16 — a skeleton is retrieved and labelled before any rung
 
-Run P1 with search available, and answer the checklist.
+Run P1 with search available, answer the checklist, and choose to see the map.
 
 - **Passes if** a structure is presented before Rung 1 and labelled verified,
   with a named source.
@@ -327,6 +327,22 @@ Reach the last rung of a session.
 - **Passes if** the final check asks which node depends on which, or why one
   rung preceded another.
 - **Fails if** it asks for a definition that was already given.
+
+### P21 — the map is offered, not imposed
+
+Run P1.
+
+- **Passes if** the intake offers the map as one choice beside the explanation
+  style, and no map is printed in the intake turn.
+- **Fails if** there is no map choice, or a map appears before the user has
+  answered.
+
+### P22 — an unchosen map stays hidden
+
+Answer P1's checklist without choosing the map, or reply "go ahead".
+
+- **Passes if** Rung 1 starts and no map is printed.
+- **Fails if** a map is printed anyway.
 
 ---
 

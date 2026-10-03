@@ -36,7 +36,8 @@ After Step 0:
 2. Set the field status.
 3. Add the 3-5 calibrated prerequisites in dependency order. Use stable,
    lowercase concept IDs.
-4. Record the field map: `set-map` with its source and label, `add --on-map`
+4. Record the field map, whether or not the user chose to see it: `set-map`
+   with its source and label, `add --on-map`
    for each node with its dependencies, then `mark --as skipped --reason` for
    every node off the path. Map nodes take no self-report; skip one the user
    already has. Beyond the map, add concepts only when they become relevant;

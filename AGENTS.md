@@ -70,6 +70,7 @@ decoding dense scientific material:
 3. Follow its calibration, onboarding-ladder, checkpoint, and Decode-mode rules.
 4. **Map before climbing.** Retrieve the field's existing structure, label it
    verified or unverified, and mark node states. Only for onboarding requests.
+   Show the map only if the user chooses it at Step 0; plan from it either way.
 5. Load a file from `field-onboarding/references/` when the moment for it
    arrives, not up front. `SKILL.md` carries an index of what to load when.
 6. Preserve the user's language unless they request another language.

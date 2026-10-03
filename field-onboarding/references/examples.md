@@ -82,6 +82,8 @@ Start with Step 0 rather than immediately teaching topology. Name a small set of
 >
 > Also tell me your target: **read papers**, **understand experiments**, **design a system**, or **enter the field broadly**.
 >
+> Optional: want a one-screen map of the field first (its main parts, and which ones we will walk)? Say **map**; otherwise I skip it.
+>
 > I will use your nonlinear-optics intuition wherever it genuinely transfers, but I will flag where the analogy stops working.
 
 **Why this is good**
@@ -92,6 +94,7 @@ Start with Step 0 rather than immediately teaching topology. Name a small set of
 - It separates explanation style from prior knowledge and provides a compact
   fallback when no choice control is callable.
 - It does not dump the five-rung ladder in the first turn.
+- It offers the field map as a choice instead of printing it unasked.
 
 ## Example 3 — Decode a dense abstract
 
@@ -140,6 +143,8 @@ Reply in Chinese and calibrate only prerequisites that matter for an experimenta
 > | Raman / IR selection rules | 决定哪些声子模式能通过具体光谱手段被看到。 |
 >
 > 讲解方式请选择：**1 物理图像优先（默认） / 2 图像与推导并重 / 3 严格推导优先**。无论哪种都会保留必要公式；如果界面没有按钮，回复数字即可。
+>
+> 另外可选：要不要在第 1 级之前先看一张领域地图（这个领域有哪些部分、这次走哪几块）？回复「地图」即可，不回复就跳过。
 >
 > 你的实验目标我先按“**判断一个材料是否存在可测的 chiral phonon signature，并设计光学验证方案**”理解。如果你实际更偏向 time-resolved pump-probe 或 Raman，可以告诉我，我会调整路线。
 

@@ -149,6 +149,8 @@ Also establish, in the same turn:
   stand between them and it, point out along the way when a rung has just
   unlocked part of it, and return to it at the end. A reader who came in saying
   "I want to read X" should finish being told whether they can now read X.
+- **Map**: offer the field map as one more choice beside the style. Show it
+  only if they choose it.
 
 That is the whole intake. One turn, then start teaching.
 
@@ -203,12 +205,12 @@ all, hand over a search instead of teaching.
 Before planning rungs, retrieve the field's existing structure (the standard
 graduate textbook's contents, else a recent review's headings, else a
 syllabus); do not invent one. Label it **verified** or **from memory,
-unverified**.
-
-Write the map (what the field contains) before the path (the nodes this session
-walks). Mark every node `new`, `taught`, `checked` or `skipped`, with a reason
-for each skip. Build a map only for an onboarding request, never because a
+unverified**. Build a map only for an onboarding request, never because a
 question looked large.
+
+Plan the path (the nodes this session walks) from the map (what the field
+contains), even when the map is not shown, and mark every node `new`, `taught`,
+`checked` or `skipped`, with a reason for each skip.
 
 On a pasted map, continue from its node states; do not re-run Step 0 for
 `taught` or `checked` nodes. Load
@@ -314,19 +316,18 @@ End each rung with a real diagnostic, never "make sense?", which always gets a
 yes. Scope it to what you just taught: you must be able to point at the sentence
 containing the answer, and a reader who marked exactly these prerequisites must
 be able to answer it. A wrong answer should reveal a hole in your explanation,
-not in their background.
+not in their background. The session's last checkpoint tests structure, not
+recall: which map node depends on which, or why one rung came before another.
 
 Load [references/checkpoints.md](references/checkpoints.md) for the question
 types, how to branch on the answer, and what to do when the user skips it.
 
 ## Decode mode
 
-When the user supplies an abstract, paragraph, figure caption, slide, or referee
-comment they cannot parse, do not run the ladder or build a map. Load
-[references/decode-mode.md](references/decode-mode.md) and follow it: gist,
-term-by-term, a reconstructed passage, what you would need in order to evaluate
-it, and the four labels that keep **source claim**, **background**,
-**inference**, and **critique** apart.
+When the user supplies text they cannot parse (see "Paper-first exception"), do
+not run the ladder or build a map. Load
+[references/decode-mode.md](references/decode-mode.md) and follow it, keeping
+**source claim**, **background**, **inference**, and **critique** apart.
 
 ## References
 
@@ -336,7 +337,7 @@ not up front.
 | File | Load it when |
 | --- | --- |
 | `references/pacing.md` | Before Rung 1, once the target is known |
-| `references/field-map.md` | You are about to plan rungs, or a map was pasted back |
+| `references/field-map.md` | You are about to plan rungs or close a session, or a map was pasted back |
 | `references/unsettled-fields.md` | The field is emerging, contested, or beyond you |
 | `references/citations.md` | You are about to name a specific work |
 | `references/search-recipes.md` | You need to verify something, or to hand over a query |

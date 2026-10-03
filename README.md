@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.8.0-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.8.1-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -18,10 +18,11 @@
 > one rung per turn in whichever explanation style you pick, and never names a
 > paper it hasn't checked.
 
-🆕 **New in v1.8.0** — it maps the field before teaching it. The structure comes
-from a textbook, a review or a syllabus instead of being made up on the spot,
-every part is marked taught, checked or skipped, and the closing takeaway can be
-pasted into a new session to carry on. [Jump to map and path](#map-before-path).
+🆕 **New in v1.8** — it can map the field before teaching it. Ask for the map in
+the opening questions and you get the field's structure, taken from a textbook,
+a review or a syllabus instead of made up on the spot, with every part marked
+taught, checked or skipped. Skip it and the lessons are still planned from that
+structure. [Jump to map and path](#map-before-path).
 
 If it helps you, a ⭐ makes it easier for other people to find. Watch the repo
 if you want to hear when the rules change; the changelog has moved most weeks,
@@ -94,6 +95,9 @@ again and you get more terms.
 >
 > Teaching style: **1 physical picture first (default) / 2 balanced / 3
 > derivation first**. If no buttons appear, reply with the number.
+>
+> Optional: want a one-screen map of the field first? Say **map**; otherwise I
+> skip it.
 
 *Twelve terms. It asks about four of them instead of throwing all twelve at you at once, then teaches from wherever you actually are, one rung per turn.*
 
@@ -282,10 +286,12 @@ textbook's contents, a recent review's headings, or a syllabus) and labels it
 verified or from memory, unverified, instead of inventing a curriculum. The
 **map** is what the field contains; the **path** is the few parts your session
 walks, chosen by your target, and every part is marked `new`, `taught`,
-`checked` or `skipped`. At the end it names what was not taught and what each
-of those parts is for, and the closing takeaway carries the map, so you can
-paste it into a new session to continue. That is manual: you save the takeaway
-and paste it back; the skill remembers nothing between sessions on its own.
+`checked` or `skipped`. Seeing the map is an option in the opening questions,
+off unless you ask; the lessons are planned from it either way, and at the end
+the agent names what was not taught and what each of those parts is for. The
+closing takeaway carries the map, so you can paste it into a new session to
+continue. That is manual: you save the takeaway and paste it back; the skill
+remembers nothing between sessions on its own.
 
 ## Reference discipline
 
@@ -375,6 +381,13 @@ research-field-onboarding/
   interactivity.
 
 ## Changelog
+
+### v1.8.1
+
+- **The map is now an option, off by default.** Printed unasked at the top of the first teaching turn, it made that turn long, and not every reader wants the whole field laid out before the first rung. The opening questions now offer it beside the explanation style, and a reader who does not choose it gets no map. The structure is still retrieved and the path still planned from it, untaught parts are still named at the end, and the closing takeaway still carries the map for resuming.
+- **The structural closing check now lives in `SKILL.md`.** In eval P20 the last checkpoint asked a conceptual question instead of which node depends on which. The rule sat only in `field-map.md` and `checkpoints.md`, which are not reloaded late in a session. `SKILL.md` now states it, and `field-map.md` is loaded again at the close.
+- To stay under 3,000 words, the Decode mode section of `SKILL.md` now points at `decode-mode.md` for the step list instead of repeating it.
+- Added P21 (the map is offered, not imposed) and P22 (an unchosen map stays hidden).
 
 ### v1.8.0
 
