@@ -1,7 +1,9 @@
 # Explanation styles
 
-Load before Rung 1. The selected mode controls the order and emphasis of an
-explanation, not how intelligent the reader is. Names such as
+Load before Rung 1. Use physical picture first unless the user has asked for
+another mode; Step 0 does not ask, and the end of Rung 1 says they can switch.
+The mode controls the order and emphasis of an explanation, not how intelligent
+the reader is. Names such as
 “Feynman/Griffiths-like” or “Landau-like” are shorthand for these priorities;
 do not imitate an author's voice.
 

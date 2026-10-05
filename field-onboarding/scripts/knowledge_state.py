@@ -26,7 +26,7 @@ FIELD_STATUS = {"unknown", "settled", "emerging", "contested"}
 EXPLANATION_STYLES = {"physical-picture", "balanced", "derivation-first"}
 TECHNICAL_REGISTERS = {"foundational", "peer-new-to-field", "specialist-bridge"}
 MAP_VERIFICATION = {"verified", "unverified"}
-MARKS = {"taught", "checked", "skipped"}
+MARKS = {"taught", "checked", "shaky", "skipped"}
 
 
 class StateError(ValueError):
@@ -247,8 +247,8 @@ def mark(
 
     `taught`: the rung was delivered but the checkpoint was skipped.
     `skipped`: the node was deliberately left out, for `reason`.
-    `checked`: only when restoring a pasted map; in-session, a passed
-    checkpoint records it.
+    `checked`, `shaky`: only when restoring a pasted map; in-session, a
+    checkpoint records them.
     """
     if concept_id not in state["concepts"]:
         raise StateError(f"unknown concept: {concept_id}")
@@ -259,7 +259,7 @@ def mark(
     candidate = copy.deepcopy(state)
     concept = candidate["concepts"][concept_id]
     if node_state == "skipped":
-        if concept["progress"] == "covered" or concept["evidence"] == "pass":
+        if map_state(concept) in {"taught", "checked"}:
             raise StateError(f"{concept_id!r} was already taught; it cannot be skipped")
         concept["progress"] = "skipped"
         concept["skip_reason"] = required_text(reason, "reason")
@@ -268,6 +268,8 @@ def mark(
         concept["skip_reason"] = None
         if node_state == "checked":
             concept["evidence"] = "pass"
+        elif node_state == "shaky":
+            concept["evidence"] = "partial"
     if candidate["current_concept"] == concept_id:
         candidate["current_concept"] = None
     validate(candidate)
@@ -362,6 +364,8 @@ def map_state(concept: dict[str, Any]) -> str:
         return "skipped"
     if concept["evidence"] == "pass":
         return "checked"
+    if concept["evidence"] in {"partial", "fail"}:
+        return "shaky"
     if concept["progress"] in {"active", "covered"}:
         return "taught"
     return "new"

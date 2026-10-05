@@ -14,8 +14,13 @@ a habit is helping. Each line is a way this skill has failed or could fail.
   The user cannot audit a gap they cannot see.
 - Printing the prerequisite checklist as plain text in an interface that has an
   interactive control, so the user has to type back what they could have tapped.
-- Asking an open-ended “what explanation style do you prefer?” when three
-  tappable or numbered choices would remove the burden.
+- Asking about explanation style or the map in the intake. Both have defaults
+  the user can change at any time, and every extra question costs a turn's
+  patience.
+- Chaining several choice controls when one would hold the prerequisites and
+  the target.
+- Naming prerequisites from memory when a search for the field's structure was
+  available.
 - Treating “simple” as “remove the equations and use a childish analogy”, or
   treating “professional” as permission to leave field-specific notation
   unexplained.
@@ -48,6 +53,8 @@ a habit is helping. Each line is a way this skill has failed or could fail.
 - Ending as though the path were the whole field, instead of naming the nodes
   that were not taught and what each one is for.
 - Printing a long map with a gloss on every node, or reprinting it every turn.
+- Teaching several path nodes in one turn.
+- Presenting a dependency you inferred as if the source stated it.
 - Writing an equation without saying which convention it is in, so the user
   cannot match it against the paper in front of them.
 - Deferring to a textbook instead of explaining. Recommend reading *after*

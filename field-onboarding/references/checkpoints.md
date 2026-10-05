@@ -16,7 +16,8 @@ contains the answer? Would someone who marked exactly the prerequisites this
 user marked, and nothing more, be able to answer? If either is no, rewrite the
 question.
 
-At the end of each rung, do not just ask "make sense?" That always gets a yes.
+At the end of each rung and each node turn, do not just ask "make sense?" That
+always gets a yes.
 Instead pick one:
 
 - Ask them to predict something: "what happens to the signal if X doubles?"
@@ -26,20 +27,21 @@ Instead pick one:
   otherwise accept a single letter or number.
 - Ask them to spot which of two statements is the field's actual claim.
 
-Make the session's last checkpoint test structure rather than recall: which map
-node depends on which, or why one rung had to come before another. See
+Make the session's last checkpoint test structure rather than recall: which
+node depends on which, or why one node had to come before another. See
 `field-map.md`.
 
 Then branch:
 
-- **Solid** -> advance to the next rung.
-- **Shaky** -> re-explain from a different angle, not louder. Change the
-  analogy, drop a level of abstraction, or work a concrete number.
-- **Bored / already knew it** -> skip ahead. Ask which rung they want.
+- **Solid** -> mark the node `checked` and advance.
+- **Shaky** -> mark it `shaky` and re-explain from a different angle, not
+  louder. Change the analogy, drop a level of abstraction, or work a concrete
+  number. It stays `shaky` until a later check passes, and its dependents wait.
+- **Bored / already knew it** -> skip ahead. Ask which node or rung they want.
 
-If the user skips the check and just says "continue", do not re-ask. Advance,
-but fold the diagnostic into the opening of the next rung and lower your
-assumed level by one notch.
+If the user skips the check and just says "continue", do not re-ask. Mark the
+node `taught` and advance, but fold the diagnostic into the opening of the next
+turn and lower your assumed level by one notch.
 
 The user can always say "skip to rung N" or "just give me the whole ladder".
 Honor that immediately.

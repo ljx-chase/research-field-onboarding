@@ -51,9 +51,9 @@ them and the environment supports them.
 
 After installing, verify it by asking a question that should trigger it, for
 example "guide me into topological photonics step by step". A correct response
-names three to five prerequisites, asks the user to mark each one, and offers
-the three explanation styles. If it starts explaining the field immediately,
-the skill did not load.
+names three prerequisites, asks the user to mark each one, and asks what they
+want it for. It does not ask about explanation style or the map. If it starts
+explaining the field immediately, the skill did not load.
 
 ## Agent entrypoint
 
@@ -70,7 +70,7 @@ decoding dense scientific material:
 3. Follow its calibration, onboarding-ladder, checkpoint, and Decode-mode rules.
 4. **Map before climbing.** Retrieve the field's existing structure, label it
    verified or unverified, and mark node states. Only for onboarding requests.
-   Show the map only if the user chooses it at Step 0; plan from it either way.
+   Show the map only when the user asks for it; plan from it either way.
 5. Load a file from `field-onboarding/references/` when the moment for it
    arrives, not up front. `SKILL.md` carries an index of what to load when.
 6. Preserve the user's language unless they request another language.
@@ -108,12 +108,12 @@ as follows:
 - **No external tools:** perform conceptual onboarding from the provided
   context, flag anything that would require verification, and give search
   pointers (venue, group, query) instead of citations that cannot be checked.
-- **Structured choice tool callable:** actually call it for explanation style,
-  prerequisite calibration, and checkpoint choices within its question limits.
+- **Structured choice tool callable:** actually call it, once, for the
+  prerequisite marks and the target together, and for checkpoint choices.
   If no such tool is callable, use compact numbered choices and accept numbers;
   do not require a prose answer.
-- **Interactive agent:** one rung per turn by default, checkpoint before
-  advancing.
+- **Interactive agent:** one rung or one path node per turn by default,
+  checkpoint before advancing.
 - **Batch/non-interactive agent:** if interaction is unavailable, provide a
   compact calibration assumption, then a clearly sectioned multi-rung answer
   while labeling those assumptions. This is not licence to run the ladder on a
