@@ -152,7 +152,7 @@ class KnowledgeStateTests(unittest.TestCase):
         state_runtime.activate(self.state, "chern-number")
         state_runtime.record_checkpoint(self.state, "chern-number", "fail", [])
         self.assertEqual(
-            {"berry-phase": "checked", "chern-number": "taught"}, self.map_states()
+            {"berry-phase": "checked", "chern-number": "shaky"}, self.map_states()
         )
 
     def test_skipped_checkpoint_marks_taught_and_unblocks(self) -> None:
@@ -210,17 +210,40 @@ class KnowledgeStateTests(unittest.TestCase):
             "berry-phase": "checked",
             "chern-number": "taught",
             "edge-states": "new",
+            "bulk-boundary": "shaky",
             "photonic-crystals": "skipped",
         }
         self.add_node("berry-phase")
         self.add_node("chern-number", ["berry-phase"])
         self.add_node("edge-states", ["chern-number"])
+        self.add_node("bulk-boundary", ["chern-number"])
         self.add_node("photonic-crystals")
         state_runtime.mark(self.state, "berry-phase", "checked")
         state_runtime.mark(self.state, "chern-number", "taught")
+        state_runtime.mark(self.state, "bulk-boundary", "shaky")
         state_runtime.mark(self.state, "photonic-crystals", "skipped", "already yours")
         self.assertEqual(pasted, self.map_states())
         self.assertEqual(["edge-states"], state_runtime.ready_concepts(self.state))
+
+    def test_shaky_node_stays_shaky_until_a_check_passes(self) -> None:
+        self.add_node("berry-phase")
+        self.add_node("chern-number", ["berry-phase"])
+        state_runtime.activate(self.state, "berry-phase")
+        state_runtime.record_checkpoint(self.state, "berry-phase", "partial", [])
+        self.assertEqual("shaky", self.map_states()["berry-phase"])
+        self.assertEqual([], state_runtime.ready_concepts(self.state))
+        state_runtime.mark(self.state, "berry-phase", "taught")
+        self.assertEqual("shaky", self.map_states()["berry-phase"])
+        state_runtime.record_checkpoint(self.state, "berry-phase", "pass", [])
+        self.assertEqual("checked", self.map_states()["berry-phase"])
+        self.assertEqual(["chern-number"], state_runtime.ready_concepts(self.state))
+
+    def test_shaky_node_can_be_dropped(self) -> None:
+        self.add_node("berry-phase")
+        state_runtime.activate(self.state, "berry-phase")
+        state_runtime.record_checkpoint(self.state, "berry-phase", "fail", [])
+        state_runtime.mark(self.state, "berry-phase", "skipped", "user dropped it")
+        self.assertEqual("skipped", self.map_states()["berry-phase"])
 
     def test_prerequisite_and_map_node_cannot_share_an_id(self) -> None:
         self.add("berry-phase", "used")

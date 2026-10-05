@@ -140,7 +140,8 @@ Run N1, decline the offered ladder, then ask a follow-up in the same field.
 
 > I keep seeing "chiral phonons" in talks.
 
-- **Passes if** it names 3-5 prerequisites and asks the user to mark each.
+- **Passes if** it names three prerequisites (four if the target is already
+  known), asks the user to mark each, and asks the target in the same turn.
 - **Fails if** it opens with a definition paragraph, or asks "what's your
   background?" instead of naming the prerequisites itself.
 - Also fails if it teaches Rung 1 in the same turn as the intake.
@@ -161,11 +162,10 @@ Answer P1's checklist with one prerequisite marked *used it* and one marked
 Same as P1, in an environment exposing a callable structured user-input,
 checklist, or elicitation tool.
 
-- **Passes if** the agent actually calls the control for the prerequisite marks,
-  using successive controls or a compact fallback only when the tool's question
-  limit requires it.
+- **Passes if** the agent calls the control once, with the prerequisite marks
+  and the target together.
 - **Fails if** every prerequisite is printed as a static table the user has to
-  type back despite the tool being callable.
+  type back despite the tool being callable, or if it chains several controls.
 - This one failed in live testing when the rule was phrased as a conditional
   clause, which is why it is here.
 
@@ -254,14 +254,13 @@ Run P1 in an environment without Python or writable files.
   calibration, pacing, or checkpoint behavior.
 - **Fails if** onboarding stops or the user is asked to repair the environment.
 
-### P13 — explanation style uses a real choice control when callable
+### P13 — style and map are defaults, not intake questions
 
 Run P1 in an environment with a structured user-input or elicitation tool.
 
-- **Passes if** the agent actually calls the tool and offers exactly the three
-  explanation styles before Rung 1.
-- **Fails if** it prints a free-form question or static options despite the
-  tool being callable.
+- **Passes if** the intake asks neither for an explanation style nor about the
+  map.
+- **Fails if** either appears in the intake, as a question or as a control.
 
 ### P14 — the default is intuitive without becoming shallow
 
@@ -285,12 +284,13 @@ but give me the physical picture and do not talk down to me.”
 
 ### P16 — a skeleton is retrieved and labelled before any rung
 
-Run P1 with search available, answer the checklist, and choose to see the map.
+Run P1 with search available, answer the checklist, and after Rung 1 say
+"show the map".
 
-- **Passes if** a structure is presented before Rung 1 and labelled verified,
-  with a named source.
-- **Fails if** rungs are planned with no skeleton, or a chapter list appears
-  with no label.
+- **Passes if** the map is labelled verified with a named source, and any
+  dependency it shows is labelled inferred unless the source states it.
+- **Fails if** there is no skeleton, a chapter list appears with no label, or
+  an inferred dependency is presented as verified.
 
 ### P17 — without search, the label and the check survive
 
@@ -307,7 +307,8 @@ Same as P16, search unavailable.
 Run an onboarding session to its close, or say "I have to stop here" after
 Rung 2.
 
-- **Passes if** every untaught node is named with what it is needed for.
+- **Passes if** every untaught node is named with what it is needed for, and a
+  dependency line, if present, is labelled inferred unless a source states it.
 - **Fails if** the session ends as though the path were the whole field.
 
 ### P19 — a pasted map resumes
@@ -325,24 +326,67 @@ In a fresh session, paste a closing-artifact map with some nodes marked
 Reach the last rung of a session.
 
 - **Passes if** the final check asks which node depends on which, or why one
-  rung preceded another.
+  node came before another.
 - **Fails if** it asks for a definition that was already given.
 
-### P21 — the map is offered, not imposed
+### P21 — style and map change on request
 
-Run P1.
+After Rung 1, say "show the map", and in the next turn "derivation first".
 
-- **Passes if** the intake offers the map as one choice beside the explanation
-  style, and no map is printed in the intake turn.
-- **Fails if** there is no map choice, or a map appears before the user has
-  answered.
+- **Passes if** the map appears once, with its label and node states, and the
+  following turn switches to derivation first without restarting.
+- **Fails if** either request re-runs the intake or is ignored.
 
-### P22 — an unchosen map stays hidden
+### P22 — Rung 1 announces the defaults
 
-Answer P1's checklist without choosing the map, or reply "go ahead".
+Answer P1's checklist, or reply "go ahead".
 
-- **Passes if** Rung 1 starts and no map is printed.
-- **Fails if** a map is printed anyway.
+- **Passes if** Rung 1 starts with no map printed and ends with one line saying
+  the user can ask for "derivation first", "balanced" or "show the map".
+- **Fails if** a map is printed unasked, or the line is missing.
+
+### P23 — the intake is built on a search
+
+Run P1 with search available.
+
+- **Passes if** a search runs before the intake is written, and the intake says
+  what it checked.
+- **Fails if** the prerequisites appear with no search although search was
+  available.
+
+### P24 — one path node per turn
+
+Answer P1's checklist and continue past Rung 2.
+
+- **Passes if** the next turn teaches one path node, names it, and ends with a
+  checkpoint on it.
+- **Fails if** one turn covers several path nodes.
+
+### P25 — a wrong answer leaves the node shaky
+
+Answer a node turn's checkpoint wrongly.
+
+- **Passes if** the node is re-taught from a different angle, and wherever its
+  state is reported it is `shaky`.
+- **Fails if** it advances to a node that depends on it, or reports the node as
+  `taught` or `checked`.
+
+### P26 — a humanities field
+
+> I'm a cognitive scientist. Guide me into phenomenology step by step.
+
+- **Passes if** the intake says what kind of source its structure came from
+  (textbook, review, syllabus, handbook, companion or encyclopedia entry) with
+  a verification label, and names prerequisites from it.
+- **Fails if** it claims a standard textbook it did not find, or numbers
+  chapters it did not retrieve.
+
+### P27 — an interdisciplinary field
+
+> I'm a statistician and want to get into environmental history. Walk me
+> through it.
+
+- Same bar as P26.
 
 ---
 
@@ -375,6 +419,10 @@ Written down so the next person does not mistake them for solid.
   are settled, since that judgement is exactly what is under test.
 - Nothing here tests session length. The skill claims one rung per turn, but a
   ten-turn session is expensive to run and nobody has done it yet.
+- **P1** is borderline by nature: a bare field name sits between the one-turn
+  test and the "trigger even when the user only names a field" clause. Before
+  v1.9 the same prompt got the intake in one of three fresh runs, and in three
+  of three on v1.8.1. Run it three times and record the count, not one result.
 - **P18 and P20** need a session that reaches its end. A transcript prefix that
   ends on the user leaving, or on the last rung, is a cheaper stand-in, but it
   primes the model with the earlier turns, so record which you used.

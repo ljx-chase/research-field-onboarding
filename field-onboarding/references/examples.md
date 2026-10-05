@@ -60,41 +60,28 @@ Give a concise factual summary and do not open the intake or ladder; an optional
 
 **Good first response**
 
-Start with Step 0 rather than immediately teaching topology. Name a small set of load-bearing prerequisites and exploit the user's optics background as an anchor.
+Start with Step 0 rather than immediately teaching topology: one search first, then three load-bearing prerequisites taken from the structure it found, and the target. Exploit the user's optics background as an anchor.
 
-> Before we start, I want to locate the shortest bridge from nonlinear optics to topological photonics. Please mark each item as **used it / learned it / new**:
+> Topological photonics is settled at its core: review articles exist and the vocabulary is standard. I took the prerequisites below from what [review] (verified, [DOI]) assumes in its opening sections. Please mark each as **used it / learned it / new**, and pick a target:
 >
 > | Prerequisite | Why it matters |
 > | --- | --- |
 > | Bloch modes and band structures | Topological photonics usually describes photonic modes as bands over momentum space. |
 > | Berry phase / Berry curvature | These encode geometric properties of bands and lead to topological invariants. |
 > | Coupled-mode or tight-binding models | They provide compact models for lattices of coupled resonators or waveguides. |
-> | Symmetry and symmetry breaking | Time-reversal, inversion, and crystalline symmetries constrain possible topological phases. |
 >
-> Choose a teaching style — reply with the number if your interface does not
-> show buttons:
->
-> 1. **Physical picture first (default):** intuition and geometry, followed by
->    equations with each term interpreted.
-> 2. **Balanced:** physical picture and formalism advance together.
-> 3. **Derivation first:** assumptions and mathematical steps first, then the
->    physical interpretation.
->
-> Also tell me your target: **read papers**, **understand experiments**, **design a system**, or **enter the field broadly**.
->
-> Optional: want a one-screen map of the field first (its main parts, and which ones we will walk)? Say **map**; otherwise I skip it.
+> Target: **a** read papers / **b** understand experiments / **c** design a system / **d** enter the field broadly. A reply like `1 used, 2 new, 3 learned, a` is enough.
 >
 > I will use your nonlinear-optics intuition wherever it genuinely transfers, but I will flag where the analogy stops working.
 
 **Why this is good**
 
+- It searches before asking, and takes the prerequisites from what the field's own structure assumes.
 - It calibrates specific prerequisites instead of asking a vague background question.
 - It does not reteach optics the user already knows.
-- It establishes the user's target before choosing depth.
-- It separates explanation style from prior knowledge and provides a compact
-  fallback when no choice control is callable.
+- It establishes the user's target before choosing depth, in the same compact reply.
+- It asks nothing else: explanation style defaults to physical picture first, and the map stays hidden; Rung 1 ends by saying both can be changed.
 - It does not dump the five-rung ladder in the first turn.
-- It offers the field map as a choice instead of printing it unasked.
 
 ## Example 3 — Decode a dense abstract
 
@@ -141,10 +128,6 @@ Reply in Chinese and calibrate only prerequisites that matter for an experimenta
 > | Brillouin zone 与 K/K' valley | 很多二维材料中的声子手性与非等价谷有关。 |
 > | 圆偏振光与角动量 | 实验选择定则通常需要讨论光与声子的角动量交换。 |
 > | Raman / IR selection rules | 决定哪些声子模式能通过具体光谱手段被看到。 |
->
-> 讲解方式请选择：**1 物理图像优先（默认） / 2 图像与推导并重 / 3 严格推导优先**。无论哪种都会保留必要公式；如果界面没有按钮，回复数字即可。
->
-> 另外可选：要不要在第 1 级之前先看一张领域地图（这个领域有哪些部分、这次走哪几块）？回复「地图」即可，不回复就跳过。
 >
 > 你的实验目标我先按“**判断一个材料是否存在可测的 chiral phonon signature，并设计光学验证方案**”理解。如果你实际更偏向 time-resolved pump-probe 或 Raman，可以告诉我，我会调整路线。
 

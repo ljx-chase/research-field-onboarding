@@ -34,7 +34,7 @@ After Step 0:
 1. Initialize a session with the target, target artifact, language, selected
    explanation style, and technical register.
 2. Set the field status.
-3. Add the 3-5 calibrated prerequisites in dependency order. Use stable,
+3. Add the three or four calibrated prerequisites in dependency order. Use stable,
    lowercase concept IDs.
 4. Record the field map, whether or not the user chose to see it: `set-map`
    with its source and label, `add --on-map`
@@ -43,7 +43,7 @@ After Step 0:
    already has. Beyond the map, add concepts only when they become relevant;
    do not attempt to build a universal ontology.
 5. Ask the helper for `next`, choose one ready concept on the path, and
-   activate it.
+   activate it. Each path node is one turn.
 6. Teach and checkpoint as required by the main skill.
 7. Judge the scientific answer yourself, then record `pass`, `partial`, or
    `fail`. Code routes the result; it does not judge scientific correctness.
@@ -78,9 +78,11 @@ partial or failed checkpoint overrides that shortcut and blocks dependents.
 
 A skipped node carries its reason and never blocks dependents; when a path node
 leans on one, state it as a black box. `summary` derives each map node's state
-from the dimensions above: `skipped`, else `checked` on a pass, else `taught`
-once activated or covered, else `new`. `mark --as checked` exists only to
-restore a pasted map; in-session, a passed checkpoint records it.
+from the dimensions above: `skipped`, else `checked` on a pass, else `shaky` on
+a partial or failed checkpoint, else `taught` once activated or covered, else
+`new`. A `shaky` node blocks its dependents until a later check passes.
+`mark --as checked` and `mark --as shaky` exist only to restore a pasted map;
+in-session, checkpoints record them.
 
 Keep the runtime invisible in the response. The user should experience only a
 well-paced lesson that remembers what happened.

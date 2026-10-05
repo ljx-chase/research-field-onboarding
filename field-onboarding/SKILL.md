@@ -44,8 +44,8 @@ costs them a turn and their patience.
 
 ## Core rules
 
-1. **One rung per turn.** Never deliver the whole ladder at once. Stop, check,
-   advance. If the user asks for the whole ladder, a compact overview, or a
+1. **One step per turn.** One rung, or one path node, per turn. Never deliver
+   the whole ladder at once. Stop, check, advance. If the user asks for the whole ladder, a compact overview, or a
    specific rung, honor that immediately.
 2. **No unexplained jargon.** Every term gets defined on first use, in one
    clause, inline. If a sentence needs three undefined terms, it is the wrong
@@ -73,7 +73,7 @@ costs them a turn and their patience.
 8. **Never invent a reference.** Every named work is either verified in this
    session or explicitly marked unverified. See "Naming literature".
 9. **Retrieve the field's structure, do not invent it.** Label it verified or
-   unverified before planning rungs.
+   unverified.
 10. **Name what you left out.** Every map node you did not teach, and what it
    is for.
 11. **Match the user's language.** Reply in whatever language they wrote in.
@@ -85,11 +85,26 @@ costs them a turn and their patience.
 Do not start teaching until this is done. Answering before you know what they
 already have is the failure this skill exists to prevent.
 
-**First, name the prerequisites yourself.** Work out which 3–5 upstream
-frameworks the topic actually rests on, and list them explicitly. Do not ask a
-vague "what's your background" — the user cannot answer that usefully, and it
-puts the work of scoping on the person who by definition does not know the
-scope yet.
+**First, search once.** One search answers three things before you write the
+intake: how settled the field is, its structure (the map below), and what that
+structure assumes a reader already knows. If you cannot search, say so, reason
+from memory out loud, and call the result provisional.
+
+- **Settled.** Textbooks and review articles exist, the vocabulary is standard,
+  the core framework is not in dispute. Teach normally.
+- **Emerging or contested.** No textbook, terminology still shifting, or the
+  central claims are actively argued over. Switch to grounded mode below.
+- **You do not actually know.** You recognize the words but cannot say what the
+  field currently contains. Say that plainly and do not teach. See "When you
+  cannot onboard them" below.
+
+Say which of the three you are in, in one line, naming what you checked.
+
+**Second, name the prerequisites from that structure.** Take the three upstream
+frameworks its opening chapters or sections assume (four if the target is
+already known) and list them explicitly. Do not ask a vague "what's your
+background" — the user cannot answer that usefully, and it puts the work of
+scoping on the person who by definition does not know the scope yet.
 
 Then ask them to mark each one:
 
@@ -100,57 +115,28 @@ Then ask them to mark each one:
 Present this as a short checklist, one line per prerequisite, with a one-clause
 gloss so they can tell what each item means.
 
-**Use a real choice control when one is callable.** Inspect the tools or
-interaction mechanisms actually available in the current environment. If a
-structured user-input, checklist, quiz, or elicitation tool is callable, call it
-for these choices; do not merely print options and say a control would be nice.
-Use successive controls when one control cannot hold every prerequisite. Do not
-infer that a control is callable just because the app is graphical. If no such
-mechanism is available, use a numbered compact fallback and accept an answer
-such as `1 used, 2 learned, 3 new`; never require a prose background essay.
+**Third, the target**: read one paper / follow a talk / start an experiment /
+judge whether a method fits their own work / pass an exam. This sets the depth.
+If they already said it, state your reading of it instead of asking.
 
-**Second, choose the explanation style.** Keep this separate from the user's
-knowledge level. Offer exactly three choices, using the same structured control
-when available:
-
-1. **Physical picture first (default)** — intuition, geometry, limiting cases,
-   and concrete phenomena first; then equations with every term interpreted.
-2. **Balanced** — intuition and formalism advance together.
-3. **Derivation first** — definitions, assumptions, and mathematical steps
-   first; physical interpretation after the derivation.
-
-These are teaching priorities, not intelligence levels. If the user does not
-choose, use option 1. If they already stated a preference, preserve it and do
-not ask again. Load
-[references/explanation-styles.md](references/explanation-styles.md) before
-Rung 1 and follow the selected mode. The user may switch modes at any time.
-
-**Third, check how settled the field is.** Do this before you teach, because
-it decides which mode you are in. Search if you can. If you cannot search, say
-so and reason from what you have, out loud.
-
-- **Settled.** Textbooks and review articles exist, the vocabulary is standard,
-  the core framework is not in dispute. Teach normally.
-- **Emerging or contested.** No textbook, terminology still shifting, or the
-  central claims are actively argued over. Switch to grounded mode below.
-- **You do not actually know.** You recognize the words but cannot say what the
-  field currently contains. Say that plainly and do not teach. See "When you
-  cannot onboard them" below.
-
-Say which of the three you are in, in one line, before Rung 1. The reader is
-entitled to know whether they are getting consensus or your reconstruction.
-
-Also establish, in the same turn:
-
-- **Target**: read one paper / follow a talk / start an experiment / judge
-  whether a method fits their own work / pass an exam. This sets the depth.
 - **Target artifact**, when they name one. If they arrived with a specific
-  paper, abstract, talk, or apparatus, keep it. Say at the start which rungs
-  stand between them and it, point out along the way when a rung has just
+  paper, abstract, talk, or apparatus, keep it. Say at the start which steps
+  stand between them and it, point out along the way when a step has just
   unlocked part of it, and return to it at the end. A reader who came in saying
   "I want to read X" should finish being told whether they can now read X.
-- **Map**: offer the field map as one more choice beside the style. Show it
-  only if they choose it.
+
+**Ask in one control.** If a structured user-input, checklist, quiz, or
+elicitation tool is actually callable, call it once, with the prerequisites and
+the target together; never chain controls, and never print options while saying
+a control would be nice. Do not infer that a control is callable just because
+the app is graphical. Otherwise use a numbered fallback that accepts `1 used, 2
+learned, 3 new, target a`; never require a prose background essay.
+
+**Ask nothing else.** Explanation style defaults to physical picture first, and
+the map is not shown; if they already stated a style, use it. Load
+[references/explanation-styles.md](references/explanation-styles.md) before
+Rung 1. End Rung 1 with one line saying they can ask for "derivation first",
+"balanced" or "show the map" at any time, and switch the moment they do.
 
 That is the whole intake. One turn, then start teaching.
 
@@ -194,32 +180,33 @@ conversation state.
 
 ## When the field is not settled
 
-If the calibration check found the field emerging, contested, or beyond what you
-can reliably describe, load
+If Step 0 found the field emerging, contested, or beyond you, load
 [references/unsettled-fields.md](references/unsettled-fields.md) before Rung 1
 and follow it for the rest of the session. When you cannot form a picture at
 all, hand over a search instead of teaching.
 
-## Map the field before climbing
+## Map and path
 
-Before planning rungs, retrieve the field's existing structure (the standard
-graduate textbook's contents, else a recent review's headings, else a
-syllabus); do not invent one. Label it **verified** or **from memory,
-unverified**. Build a map only for an onboarding request, never because a
-question looked large.
+The structure from Step 0 is the map: what the field contains, at chapter level.
+Do not invent one, and do not search again only for it. Label it **verified** or
+**from memory, unverified**, and label **inferred** any dependency you work out
+rather than read off a source. Build a map only for an onboarding request, never
+because a question looked large.
 
-Plan the path (the nodes this session walks) from the map (what the field
-contains), even when the map is not shown, and mark every node `new`, `taught`,
-`checked` or `skipped`, with a reason for each skip.
+Plan the path from it: the three to six nodes this session walks, in dependency
+order. Mark every node `new`, `taught`, `checked`, `shaky` or `skipped`, with a
+reason for each skip. Show the map only when asked; once shown, never reprint
+it, and after each node turn print only the nodes whose state changed.
 
 On a pasted map, continue from its node states; do not re-run Step 0 for
 `taught` or `checked` nodes. Load
-[references/field-map.md](references/field-map.md) first.
+[references/field-map.md](references/field-map.md) before planning the path.
 
 ## The ladder
 
-Climb these in order. One rung per turn. Announce which rung you are on and
-what comes next.
+Rungs 1 and 2 run once, for the whole field. Then the path: one turn per path
+node, each carrying Rungs 3 and 4 for that node. Rung 5 runs once, at the end.
+Announce which rung or node you are on and what comes next.
 
 Length and emphasis are both set by the reader's stated target, not by the
 rung. Load [references/pacing.md](references/pacing.md) before Rung 1 for the
@@ -248,27 +235,22 @@ here than in the user's home field. Those false friends cause the most damage.
 In an emerging field, mark which terms are not yet standard and name the
 competing usages.
 
-### Rung 3 — The core framework
+### Rungs 3–4 — One turn per path node
 
-The central model, equation, or conceptual structure. Derive or motivate it
-from something the user already accepts. Do not assert it.
+For each node, in path order:
 
-Show one worked case: the simplest non-trivial system, all the way through,
-with the physical meaning of each step stated. One concrete example beats three
-abstract ones.
+- **Core framework (Rung 3).** The node's central model or equation, derived
+  or motivated from something the user already accepts, never asserted. One
+  worked case, the simplest non-trivial system all the way through, with the
+  physical meaning of each step. Its assumptions, and when it fails.
+- **How people actually do it (Rung 4).** The techniques, calculations or
+  datasets behind it: a typical measurement or calculation, its raw output, how
+  that output becomes a claim, the standard artifacts and failure modes, and
+  what practitioners argue about.
 
-State the assumptions the framework rests on and when it fails.
-
-### Rung 4 — How people actually do it
-
-Experimental techniques, computational methods, or datasets, whichever the
-field runs on. What a typical measurement or calculation looks like, what the
-raw output is, how that output becomes a scientific claim, what the standard
-artifacts and failure modes are, and what practitioners argue about
-methodologically.
-
-If the user's target is doing the work rather than reading it, expand this rung
-and compress rung 5.
+Weight the two by the node and the target: a methods node is mostly Rung 4, a
+theory node mostly Rung 3, and a hands-on target turns Rung 4 into procedure.
+If a node genuinely needs two turns, take two and say so at the break.
 
 ### Rung 5 — Frontier and entry points
 
@@ -276,9 +258,8 @@ What is unresolved, which groups are pushing which direction, and a short
 reading path: one review to orient, one or two landmark papers, one recent
 paper. Say what each is for and in what order to read them.
 
-This rung names specific works, so the rules in "Naming literature" are binding
-here. Verify the recent paper is actually recent, and check whether a landmark
-result has been contested or superseded since it was published.
+Its named works follow "Naming literature": check that the recent paper is
+recent and that no landmark result has since been superseded.
 
 ## Naming literature
 
@@ -312,12 +293,14 @@ the glossary and the open prerequisites and skip the rest.
 
 ## Checkpoints
 
-End each rung with a real diagnostic, never "make sense?", which always gets a
-yes. Scope it to what you just taught: you must be able to point at the sentence
+End each rung and each node turn with a real diagnostic, never "make sense?",
+which always gets a yes. Scope it to what you just taught: you must be able to point at the sentence
 containing the answer, and a reader who marked exactly these prerequisites must
 be able to answer it. A wrong answer should reveal a hole in your explanation,
-not in their background. The session's last checkpoint tests structure, not
-recall: which map node depends on which, or why one rung came before another.
+not in their background. Then mark the node: `checked` on a correct answer,
+`shaky` on a wrong or partial one (re-teach it from a different angle before its
+dependents), `taught` if they skip the check. The session's last checkpoint
+tests structure, not recall: which node depends on which, or why one came first.
 
 Load [references/checkpoints.md](references/checkpoints.md) for the question
 types, how to branch on the answer, and what to do when the user skips it.
@@ -337,13 +320,13 @@ not up front.
 | File | Load it when |
 | --- | --- |
 | `references/pacing.md` | Before Rung 1, once the target is known |
-| `references/field-map.md` | You are about to plan rungs or close a session, or a map was pasted back |
+| `references/field-map.md` | Planning the path, closing a session, or a map was pasted back |
 | `references/unsettled-fields.md` | The field is emerging, contested, or beyond you |
 | `references/citations.md` | You are about to name a specific work |
 | `references/search-recipes.md` | You need to verify something, or to hand over a query |
 | `references/checkpoints.md` | Before the first checkpoint |
 | `references/decode-mode.md` | The user supplied text instead of a field |
-| `references/explanation-styles.md` | Before Rung 1, once the explanation style is known |
+| `references/explanation-styles.md` | Before Rung 1, and when the user switches style |
 | `references/state-runtime.md` | A multi-turn ladder can use local Python and temporary files |
 | `references/anti-patterns.md` | Reviewing your own output |
 | `references/examples.md` | An example would settle how a rule applies |

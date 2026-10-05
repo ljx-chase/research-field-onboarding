@@ -4,7 +4,7 @@
 
 <p>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/></a>
-<img src="https://img.shields.io/badge/version-v1.8.1-blue?style=flat-square" alt="Version"/>
+<img src="https://img.shields.io/badge/version-v1.9.0-blue?style=flat-square" alt="Version"/>
 <a href="https://github.com/ljx-chase/research-field-onboarding/stargazers"><img src="https://img.shields.io/github/stars/ljx-chase/research-field-onboarding?style=flat-square&color=yellow" alt="Stars"/></a>
 <img src="https://img.shields.io/github/last-commit/ljx-chase/research-field-onboarding/main?style=flat-square" alt="Last Commit"/>
 </p>
@@ -14,15 +14,17 @@
 </div>
 
 > **Ask an assistant about a field you don't know and it answers at the level of
-> someone who does.** This one asks which prerequisites you already have, teaches
-> one rung per turn in whichever explanation style you pick, and never names a
-> paper it hasn't checked.
+> someone who does.** This one checks the field's own structure, asks which of
+> its prerequisites you already have, teaches one step per turn, and never names
+> a paper it hasn't checked.
 
-🆕 **New in v1.8** — it can map the field before teaching it. Ask for the map in
-the opening questions and you get the field's structure, taken from a textbook,
-a review or a syllabus instead of made up on the spot, with every part marked
-taught, checked or skipped. Skip it and the lessons are still planned from that
-structure. [Jump to map and path](#map-before-path).
+🆕 **New in v1.9** — fewer questions up front, and one part of the field per
+turn. The opening turn asks only which prerequisites you have and what you want,
+in one go, and takes those prerequisites from the field's own textbook or
+review. After the motivation and vocabulary, each part of the field gets a turn
+of its own, and a part you got wrong stays marked shaky until you get it right.
+Say "derivation first" or "show the map" whenever you like.
+[Jump to the ladder](#the-ladder).
 
 If it helps you, a ⭐ makes it easier for other people to find. Watch the repo
 if you want to hear when the rules change; the changelog has moved most weeks,
@@ -87,19 +89,16 @@ again and you get more terms.
 > **Assistant:** Before we start: the shortest bridge from what you already know. Mark each one.
 >
 > - **Matrix multiplication and dot products** — attention is a stack of matrix operations
-> - **Forward pass of a neural network** — how one layer turns an input into an output
 > - **Softmax and probability normalization** — this is where the attention weights come from
 > - **Embeddings and sequence representation** — how text becomes vectors the model can work on
 >
 > `used it` / `learned it` / `new`
 >
-> Teaching style: **1 physical picture first (default) / 2 balanced / 3
-> derivation first**. If no buttons appear, reply with the number.
->
-> Optional: want a one-screen map of the field first? Say **map**; otherwise I
-> skip it.
+> And what is it for: **a** read a paper / **b** follow talks / **c** build one /
+> **d** judge whether it fits your work? A reply like `1 used, 2 new, 3 learned, a`
+> is enough.
 
-*Twelve terms. It asks about four of them instead of throwing all twelve at you at once, then teaches from wherever you actually are, one rung per turn.*
+*Twelve terms. It asks about three of them instead of throwing all twelve at you at once, then teaches from wherever you actually are, one step per turn.*
 
 The problem is not that the model knows too little. It is that nobody asked you
 what you know before choosing where to start.
@@ -120,7 +119,8 @@ asking where you are standing before it starts pointing.
 
 ## Pick how it explains
 
-Same content, different order. Chosen once at the start, changeable at any time.
+Same content, different order. Physical picture first unless you say otherwise;
+say "balanced" or "derivation first" at any time and the next turn switches.
 
 - **Physical picture first** *(default)* — intuition, geometry, limiting cases
   and concrete phenomena first, then the equations with every term interpreted.
@@ -141,10 +141,10 @@ into anything, see [pick-your-professor](https://github.com/ljx-chase/pick-your-
 Twelve rules. Full text in
 [SKILL.md](field-onboarding/SKILL.md).
 
-1. Name the prerequisites yourself, don't ask "what's your background".
+1. Name the prerequisites from the field's own structure; don't ask "what's your background".
 2. Anything marked *used it* is an anchor and never gets explained again.
 3. Separate style from level; plain language must keep the real science.
-4. One rung per turn: motivation, vocabulary, framework, methods, frontier.
+4. One step per turn: motivation, vocabulary, one part of the field at a time, frontier.
 5. End each rung with a question the rung itself answers, not "make sense?".
 6. Say where the analogy breaks, every time you use one.
 7. State which sign, unit or normalization convention you are using.
@@ -157,20 +157,21 @@ Twelve rules. Full text in
 ## What it does differently
 
 **1. It names your gaps for you.** Not "what's your background?" — you cannot
-audit a gap you cannot see. The agent works out the three to five upstream
-frameworks the topic actually rests on, lists them with a one-clause gloss, and
+audit a gap you cannot see. The agent looks up the field's structure, takes the
+three upstream frameworks it assumes, lists them with a one-clause gloss, and
 asks you to mark each as *used it*, *learned it*, or *new*. Then it uses the
 marks: anchors are never re-taught, black boxes are declared as black boxes, and
 a load-bearing gap gets built before anything stands on it.
 
-**2. It separates teaching style from technical level.** Choose physical-picture
-first, balanced, or derivation-first. The default treats you as a capable
-researcher entering a new field: jargon is unpacked, while mechanisms,
-assumptions, and equations stay. If the host exposes a structured choice tool,
-the agent must call it; otherwise you can reply with a single number.
+**2. It separates teaching style from technical level.** Physical picture first
+by default; say "balanced" or "derivation first" to switch. The default treats
+you as a capable researcher entering a new field: jargon is unpacked, while
+mechanisms, assumptions, and equations stay. The opening questions fit in one
+control where the host has one, or one line of numbers where it does not.
 
-**3. It teaches one rung at a time.** Motivation, vocabulary, core framework,
-methods, frontier. Each rung is one turn and ends with a real diagnostic — a
+**3. It teaches one step at a time.** Motivation and vocabulary once, then each
+part of the field in its own turn, then the frontier. Each step ends with a real
+diagnostic — a
 prediction, a restatement, a forced choice — not "does that make sense?", which
 always gets a yes. Wrong answers get a different explanation, not a louder one.
 
@@ -261,17 +262,16 @@ first, offer second.
 
 | Rung | What it delivers |
 | --- | --- |
-| 0. Calibrate | Prerequisites named and marked, plus your target |
+| 0. Calibrate | One search for the field's structure, three prerequisites taken from it and marked, your target |
 | 1. Why the field exists | The problem it was invented for, and what was inadequate before |
 | 2. Vocabulary map | The 5–10 terms that unlock the literature, with symbols, home-field analogues, and false friends |
-| 3. Core framework | The central model, motivated rather than asserted, with one worked case and its failure regime |
-| 4. How people actually do it | Measurements or calculations, raw output, how output becomes a claim, standard artifacts |
+| 3–4. One turn per part of the field | For each part on your path: its core framework, motivated rather than asserted with one worked case, and how people actually do it |
 | 5. Frontier and entry points | What is unresolved, and a labelled reading path |
 
 Your **target** routes the whole ladder, not just its length. Reading a paper
 weights notation and formalism; judging whether a method fits your work leads
-with phenomena and worked numbers and expands Rung 4; doing it hands-on turns
-Rung 4 into a procedure. At the end the agent produces a takeaway you keep: the
+with phenomena and worked numbers and weights each part toward practice; doing
+it hands-on turns the practice half of each part into a procedure. At the end the agent produces a takeaway you keep: the
 map with each part's state, the glossary, the reading path, the field's open
 questions, and the prerequisites you still have not covered.
 
@@ -285,9 +285,10 @@ Before Rung 1 the agent retrieves the field's existing structure (a standard
 textbook's contents, a recent review's headings, or a syllabus) and labels it
 verified or from memory, unverified, instead of inventing a curriculum. The
 **map** is what the field contains; the **path** is the few parts your session
-walks, chosen by your target, and every part is marked `new`, `taught`,
-`checked` or `skipped`. Seeing the map is an option in the opening questions,
-off unless you ask; the lessons are planned from it either way, and at the end
+walks, one turn each, and every part is marked `new`, `taught`, `checked`,
+`shaky` or `skipped`; dependencies the agent worked out itself are labelled
+inferred. The map stays hidden until you say "show the map"; the lessons are
+planned from it either way, and at the end
 the agent names what was not taught and what each of those parts is for. The
 closing takeaway carries the map, so you can paste it into a new session to
 continue. That is manual: you save the takeaway and paste it back; the skill
@@ -381,6 +382,19 @@ research-field-onboarding/
   interactivity.
 
 ## Changelog
+
+### v1.9.0
+
+Every change in this release answers a review of v1.8.1.
+
+- **A shorter intake.** Step 0 had grown to six things in one turn: prerequisites, explanation style, settledness, target, target artifact, and whether to show the map. An intake in front of a lesson is the cost this skill exists to avoid. It now asks only for the prerequisite marks and the target, in one control where the host has one. Style defaults to physical picture first and the map stays hidden; Rung 1 ends with one line saying both can be changed at any time.
+- **Search first, then prerequisites.** Prerequisites used to be named from memory before the field was checked, and memory is least reliable in exactly the emerging fields where it matters. Step 0 now runs one search that settles three things: how settled the field is, its structure, and what that structure assumes. The prerequisites are read off that structure, and a hidden map costs no extra search.
+- **One part of the field per turn.** The fixed five-rung ladder and the map's chapter-level nodes did not fit together: one Rung 3 was being asked to cover several nodes. Rungs 1 and 2 now run once for the whole field, each path node then gets its own turn carrying Rungs 3 and 4 for that node, and Rung 5 runs once at the end. The path is three to six nodes.
+- **A `shaky` state.** A node whose checkpoint was answered wrongly had no state that said so. It is now `shaky` until a later check passes, and its dependents wait. The state helper reports it and can restore it from a pasted map.
+- **Inferred dependencies are labelled.** A contents page gives order, not dependencies, so a dependency the agent works out itself is labelled inferred instead of sitting next to a verified source as if verified.
+- **Fields without textbooks.** Much of the humanities and many interdisciplinary fields have no standard textbook. Handbooks, companion volumes and encyclopedia entries now count as sources for the structure, and two non-STEM evals (P26, P27) test it.
+- **Rules that hold on every turn live in `SKILL.md`.** Node-state updates and the changed-nodes-only rule moved back from `field-map.md`. `SKILL.md` is 2,993 words.
+- Evals: P1, P3, P13, P16, P17, P18, P20, P21 and P22 rewritten for the new intake; P23 to P27 added; P1's run-to-run variance recorded as a known-weak check.
 
 ### v1.8.1
 
